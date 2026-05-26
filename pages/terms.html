@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Policies — PetCare Spa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --pink: #d4317e;
+      --pink-deep: #a8185a;
+      --pink-dark: #7c2341;
+      --pink-pale: #fdf2f8;
+      --pink-border: #e3cdd5;
+      --teal: #2dd4bf;
+      --teal-dark: #0e9f8e;
+      --white: #fff;
+      --dark: #1a0e12;
+      --gray: #6b7280;
+      --border: #f0e6ec;
+      --font-body: 'Manrope', sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-hand: 'Caveat', cursive;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    .tp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #fff;
+      border-bottom: 1.5px solid var(--border);
+      box-shadow: 0 2px 20px rgba(212,49,126,0.07);
+    }
+    .tp-nav__inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 32px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tp-nav__logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .tp-nav__logo span { color: var(--pink); }
+    .tp-nav__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink);
+      text-decoration: none;
+      padding: 8px 18px;
+      border: 1.5px solid var(--pink-border);
+      border-radius: 999px;
+      transition: 0.2s;
+    }
+    .tp-nav__back:hover {
+      background: var(--pink-pale);
+    }
+
+    /* ── HERO ── */
+    .tp-hero {
+      background: linear-gradient(145deg, #1a0e12 0%, #2b1620 55%, #3c1228 100%);
+      padding: 80px 32px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(212,49,126,0.25), transparent 55%),
+        radial-gradient(circle at 80% 50%, rgba(45,212,191,0.15), transparent 55%);
+    }
+    .tp-hero__inner { position: relative; z-index: 1; }
+    .tp-hero__paw {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .tp-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .tp-hero h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+    .tp-hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+    .tp-hero__date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 6px 18px;
+      border-radius: 999px;
+    }
+
+    /* ── TAB NAV ── */
+    .tp-tabs {
+      background: #fff;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 68px;
+      z-index: 99;
+    }
+    .tp-tabs__inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tp-tabs__inner::-webkit-scrollbar { display: none; }
+    .tp-tab {
+      padding: 16px 24px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gray);
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -2px;
+      white-space: nowrap;
+      transition: 0.2s;
+      font-family: var(--font-body);
+    }
+    .tp-tab:hover { color: var(--pink); }
+    .tp-tab.active {
+      color: var(--pink);
+      border-bottom-color: var(--pink);
+    }
+
+    /* ── LAYOUT ── */
+    .tp-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 32px 100px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .tp-sidebar {
+      position: sticky;
+      top: 130px;
+    }
+    .tp-sidebar__title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+    .tp-sidebar__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tp-sidebar__link {
+      display: block;
+      padding: 9px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4a3840;
+      text-decoration: none;
+      border-radius: 10px;
+      border-left: 2.5px solid transparent;
+      transition: 0.18s;
+    }
+    .tp-sidebar__link:hover {
+      background: var(--pink-pale);
+      color: var(--pink);
+    }
+    .tp-sidebar__link.active {
+      background: var(--pink-pale);
+      color: var(--pink);
+      border-left-color: var(--pink);
+    }
+
+    /* ── PANELS ── */
+    .tp-panel { display: none; }
+    .tp-panel.active { display: block; }
+
+    /* ── SECTION ── */
+    .tp-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 160px;
+    }
+    .tp-section__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+    .tp-section__eyebrow::before {
+      content: '';
+      width: 18px;
+      height: 1.5px;
+      background: var(--pink);
+      border-radius: 2px;
+    }
+    .tp-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .tp-section p {
+      font-size: 0.94rem;
+      color: #4a3840;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .tp-section ul, .tp-section ol {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .tp-section ul li, .tp-section ol li {
+      font-size: 0.93rem;
+      color: #4a3840;
+      line-height: 1.75;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .tp-section ul li::before {
+      content: '🐾';
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tp-section ol { counter-reset: ol-counter; }
+    .tp-section ol li { counter-increment: ol-counter; }
+    .tp-section ol li::before {
+      content: counter(ol-counter);
+      width: 22px;
+      height: 22px;
+      background: var(--pink-pale);
+      border: 1.5px solid var(--pink-border);
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .tp-callout {
+      background: var(--pink-pale);
+      border: 1.5px solid var(--pink-border);
+      border-left: 4px solid var(--pink);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .tp-callout__icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tp-callout p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--pink-dark);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    /* ── INFO CARD ── */
+    .tp-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: 0 4px 16px rgba(26,14,18,0.05);
+    }
+    .tp-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .tp-card p {
+      margin: 0;
+      font-size: 0.88rem;
+    }
+
+    /* ── TABLE ── */
+    .tp-table-wrap { overflow-x: auto; margin: 20px 0; }
+    .tp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(26,14,18,0.06);
+    }
+    .tp-table th {
+      background: var(--dark);
+      color: #fff;
+      padding: 13px 18px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    .tp-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      color: #4a3840;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .tp-table tr:last-child td { border-bottom: none; }
+    .tp-table tr:nth-child(even) td { background: #fdf8fb; }
+
+    /* ── DIVIDER ── */
+    .tp-divider {
+      border: none;
+      border-top: 1.5px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── CONTACT BOX ── */
+    .tp-contact {
+      background: linear-gradient(145deg, #1a0e12, #2b1620);
+      border-radius: 28px;
+      padding: 40px;
+      text-align: center;
+      color: #fff;
+      margin-top: 48px;
+    }
+    .tp-contact h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .tp-contact p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .tp-contact__links {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .tp-contact__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .tp-contact__btn--primary {
+      background: var(--pink);
+      color: #fff;
+    }
+    .tp-contact__btn--primary:hover { background: var(--pink-deep); }
+    .tp-contact__btn--outline {
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85);
+    }
+    .tp-contact__btn--outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── FOOTER NOTE ── */
+    .tp-footer-note {
+      background: var(--pink-pale);
+      border-top: 1.5px solid var(--pink-border);
+      text-align: center;
+      padding: 20px 32px;
+      font-size: 0.82rem;
+      color: #887278;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .tp-layout {
+        grid-template-columns: 1fr;
+        padding: 40px 20px 80px;
+      }
+      .tp-sidebar {
+        display: none;
+      }
+      .tp-tabs {
+        top: 68px;
+      }
+    }
+    @media (max-width: 600px) {
+      .tp-hero { padding: 56px 20px 48px; }
+      .tp-tabs__inner { padding: 0 16px; }
+      .tp-tab { padding: 14px 16px; font-size: 0.82rem; }
+      .tp-contact { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="tp-nav">
+  <div class="tp-nav__inner">
+    <a href="/index.html" class="tp-nav__logo">Pet <span>Care</span> Spa</a>
+    <a href="/index.html" class="tp-nav__back">
+      <i class="fa fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="tp-hero">
+  <div class="tp-hero__inner">
+    <span class="tp-hero__paw">🐾</span>
+    <h1>Terms &amp; <em>Policies</em></h1>
+    <p>We believe in transparency. Everything about how we operate, protect your data, and keep your pets safe — all in one place.</p>
+    <span class="tp-hero__date"><i class="fa fa-calendar-alt"></i> Last updated: May 2026</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tp-tabs">
+  <div class="tp-tabs__inner">
+    <button class="tp-tab active" onclick="switchTabTerms('terms', this)">📋 Terms of Service</button>
+    <button class="tp-tab" onclick="switchTabTerms('privacy', this)">🔒 Privacy Policy</button>
+    <button class="tp-tab" onclick="switchTabTerms('refund', this)">💳 Refund Policy</button>
+    <button class="tp-tab" onclick="switchTabTerms('pet', this)">🐶 Pet Care Policy</button>
+    <button class="tp-tab" onclick="switchTabTerms('cookie', this)">🍪 Cookie Policy</button>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="tp-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="tp-sidebar" id="sidebar">
+    <div class="tp-sidebar__title">On this page</div>
+    <nav class="tp-sidebar__nav" id="sidebar-nav"></nav>
+  </aside>
+
+  <!-- CONTENT -->
+  <main>
+
+    <!-- ═══════════ TERMS OF SERVICE ═══════════ -->
+    <div class="tp-panel active" id="panel-terms">
+
+      <div class="tp-section" id="terms-acceptance">
+        <span class="tp-section__eyebrow">Section 1</span>
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing or using PetCare Spa's website, booking system, or any of our services, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our services.</p>
+        <div class="tp-callout">
+          <span class="tp-callout__icon">⚠️</span>
+          <p>These terms apply to all visitors, users, and customers of PetCare Spa, including those who book appointments online or in person.</p>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="terms-services">
+        <span class="tp-section__eyebrow">Section 2</span>
+        <h2>Our Services</h2>
+        <p>PetCare Spa provides premium pet grooming, wellness, daycare, boarding, and nutrition services. All services are subject to availability and the specific terms outlined at the time of booking.</p>
+        <ul>
+          <li>Grooming services including bathing, trimming, and styling</li>
+          <li>Luxury lodging and all-day daycare for dogs and cats</li>
+          <li>Organic nutrition and spa bite meal preparation</li>
+          <li>Physical rehabilitation and wellness consultations</li>
+          <li>Membership programs with tiered benefits</li>
+        </ul>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="terms-booking">
+        <span class="tp-section__eyebrow">Section 3</span>
+        <h2>Booking &amp; Appointments</h2>
+        <p>Appointments can be booked via our website, phone, or in person. We reserve the right to decline service to any pet that poses a safety risk to staff or other animals.</p>
+        <ol>
+          <li>Bookings must be confirmed at least 24 hours in advance for standard services.</li>
+          <li>A valid contact number and pet health record may be required at check-in.</li>
+          <li>Late arrivals (more than 15 minutes) may result in rescheduling at our discretion.</li>
+          <li>We reserve the right to terminate a session if a pet shows signs of extreme distress.</li>
+        </ol>
+        <div class="tp-callout">
+          <span class="tp-callout__icon">📅</span>
+          <p>Cancellations made less than 12 hours before the scheduled appointment may incur a fee. See our Refund Policy for details.</p>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="terms-liability">
+        <span class="tp-section__eyebrow">Section 4</span>
+        <h2>Liability &amp; Indemnification</h2>
+        <p>PetCare Spa takes every precaution to ensure the safety and well-being of your pet. However, we are not liable for pre-existing conditions, allergic reactions to products (if not disclosed), or incidents arising from aggressive behavior not disclosed at intake.</p>
+        <div class="tp-card">
+          <h4>Emergency Medical Consent</h4>
+          <p>By booking with us, you authorize PetCare Spa to seek emergency veterinary care for your pet if we are unable to reach you. All reasonable costs will be the responsibility of the pet owner.</p>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="terms-ip">
+        <span class="tp-section__eyebrow">Section 5</span>
+        <h2>Intellectual Property</h2>
+        <p>All content on this website including text, graphics, logos, and images is the property of PetCare Spa and protected by applicable intellectual property laws. You may not reproduce or distribute any content without prior written permission.</p>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="terms-changes">
+        <span class="tp-section__eyebrow">Section 6</span>
+        <h2>Changes to Terms</h2>
+        <p>We may update these Terms of Service at any time. Continued use of our services after changes constitutes acceptance of the revised terms. We will notify registered users of significant changes via email.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══════════ PRIVACY POLICY ═══════════ -->
+    <div class="tp-panel" id="panel-privacy">
+
+      <div class="tp-section" id="privacy-collect">
+        <span class="tp-section__eyebrow">Section 1</span>
+        <h2>Information We Collect</h2>
+        <p>We collect information you provide when booking appointments, creating an account, or contacting us. This includes:</p>
+        <ul>
+          <li>Name, email address, and phone number</li>
+          <li>Pet information (name, breed, age, medical history)</li>
+          <li>Payment information (processed securely — we do not store card numbers)</li>
+          <li>Appointment history and service preferences</li>
+          <li>Communication records with our team</li>
+        </ul>
+        <p>We also automatically collect technical data such as IP address, browser type, and pages visited through cookies and analytics tools.</p>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="privacy-use">
+        <span class="tp-section__eyebrow">Section 2</span>
+        <h2>How We Use Your Data</h2>
+        <div class="tp-table-wrap">
+          <table class="tp-table">
+            <thead>
+              <tr>
+                <th>Purpose</th>
+                <th>Data Used</th>
+                <th>Legal Basis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Booking &amp; service delivery</td><td>Name, contact, pet info</td><td>Contractual necessity</td></tr>
+              <tr><td>Payment processing</td><td>Billing details</td><td>Contractual necessity</td></tr>
+              <tr><td>Marketing emails</td><td>Email, preferences</td><td>Consent (opt-in)</td></tr>
+              <tr><td>Website analytics</td><td>Usage data, cookies</td><td>Legitimate interest</td></tr>
+              <tr><td>Legal compliance</td><td>Any relevant data</td><td>Legal obligation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="privacy-share">
+        <span class="tp-section__eyebrow">Section 3</span>
+        <h2>Data Sharing</h2>
+        <p>We do not sell your personal data. We may share information with trusted third parties only where necessary:</p>
+        <ul>
+          <li>Payment processors (e.g. Stripe) for secure transactions</li>
+          <li>Email service providers for appointment confirmations</li>
+          <li>Veterinary partners in case of emergency</li>
+          <li>Law enforcement if required by law</li>
+        </ul>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="privacy-rights">
+        <span class="tp-section__eyebrow">Section 4</span>
+        <h2>Your Rights</h2>
+        <p>You have the right to access, correct, or delete your personal data at any time. To exercise your rights, contact us at <strong>privacy@petcarespas.com</strong>.</p>
+        <ul>
+          <li>Right to access your personal data</li>
+          <li>Right to correct inaccurate data</li>
+          <li>Right to request deletion ("right to be forgotten")</li>
+          <li>Right to withdraw marketing consent</li>
+          <li>Right to data portability</li>
+        </ul>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="privacy-retention">
+        <span class="tp-section__eyebrow">Section 5</span>
+        <h2>Data Retention</h2>
+        <p>We retain your data for as long as necessary to provide our services and comply with legal obligations. Account data is deleted within 90 days of account closure upon request.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══════════ REFUND POLICY ═══════════ -->
+    <div class="tp-panel" id="panel-refund">
+
+      <div class="tp-section" id="refund-cancellation">
+        <span class="tp-section__eyebrow">Section 1</span>
+        <h2>Cancellation Policy</h2>
+        <p>We understand that plans change. Our cancellation policy is designed to be fair to both our clients and our team.</p>
+        <div class="tp-table-wrap">
+          <table class="tp-table">
+            <thead>
+              <tr><th>Notice Given</th><th>Refund</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>48+ hours before</td><td>Full refund</td><td>No questions asked</td></tr>
+              <tr><td>24–48 hours before</td><td>50% refund</td><td>Or reschedule free</td></tr>
+              <tr><td>12–24 hours before</td><td>No refund</td><td>Reschedule fee applies</td></tr>
+              <tr><td>Less than 12 hours</td><td>No refund</td><td>Full charge applies</td></tr>
+              <tr><td>No-show</td><td>No refund</td><td>Full charge applies</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tp-callout">
+          <span class="tp-callout__icon">💡</span>
+          <p>Members on Gold tier and above receive one free late cancellation per month as part of their membership benefits.</p>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="refund-service">
+        <span class="tp-section__eyebrow">Section 2</span>
+        <h2>Service Satisfaction</h2>
+        <p>If you are not satisfied with the result of a grooming or spa service, please inform us within 48 hours. We will offer a complimentary redo or partial refund at our discretion.</p>
+        <ul>
+          <li>Grooming dissatisfaction: complimentary redo within 5 days</li>
+          <li>Product allergic reactions (undisclosed): full refund of product cost</li>
+          <li>Boarding complaints: reviewed case-by-case</li>
+        </ul>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="refund-membership">
+        <span class="tp-section__eyebrow">Section 3</span>
+        <h2>Membership Refunds</h2>
+        <p>Monthly memberships may be cancelled at any time with effect from the next billing cycle. Annual memberships are non-refundable after the 14-day cooling-off period, but may be transferred to another pet owner.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══════════ PET CARE POLICY ═══════════ -->
+    <div class="tp-panel" id="panel-pet">
+
+      <div class="tp-section" id="pet-health">
+        <span class="tp-section__eyebrow">Section 1</span>
+        <h2>Health Requirements</h2>
+        <p>For the safety of all animals in our care, we require all pets to meet the following health standards before services are rendered:</p>
+        <ul>
+          <li>Up-to-date vaccinations (Rabies, DHPP for dogs; FVRCP for cats)</li>
+          <li>Flea and tick treatment within the last 30 days</li>
+          <li>No contagious illnesses or open wounds</li>
+          <li>Pets showing signs of illness will be isolated and owners contacted</li>
+        </ul>
+        <div class="tp-callout">
+          <span class="tp-callout__icon">💉</span>
+          <p>Vaccination records may be requested at any visit. Please bring your pet's health booklet or have your vet send records in advance.</p>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="pet-behavior">
+        <span class="tp-section__eyebrow">Section 2</span>
+        <h2>Behavior &amp; Aggression</h2>
+        <p>We work with pets of all temperaments but reserve the right to stop a service if a pet poses a danger to staff or other animals. Please disclose any history of aggression at the time of booking.</p>
+        <ul>
+          <li>Muzzling may be used for the safety of staff and your pet</li>
+          <li>Pets with extreme anxiety may be referred to a veterinarian before services</li>
+          <li>We do not use sedation — all calming methods are natural and gentle</li>
+        </ul>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="pet-emergency">
+        <span class="tp-section__eyebrow">Section 3</span>
+        <h2>Emergency Procedures</h2>
+        <p>In the event of a medical emergency, our staff is trained in pet first aid. We will contact you immediately and, if necessary, transport your pet to the nearest veterinary clinic.</p>
+        <div class="tp-card">
+          <h4>Emergency Contacts</h4>
+          <p>Please ensure your contact details are up to date at all times and provide an alternative emergency contact when booking overnight stays.</p>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="pet-photo">
+        <span class="tp-section__eyebrow">Section 4</span>
+        <h2>Photography &amp; Media</h2>
+        <p>We love sharing our adorable clients on social media! We may photograph or film your pet during their stay. If you prefer your pet not to be featured, please let us know at check-in.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══════════ COOKIE POLICY ═══════════ -->
+    <div class="tp-panel" id="panel-cookie">
+
+      <div class="tp-section" id="cookie-what">
+        <span class="tp-section__eyebrow">Section 1</span>
+        <h2>What Are Cookies?</h2>
+        <p>Cookies are small text files stored on your device when you visit our website. They help us provide a better experience by remembering your preferences and understanding how you use our site.</p>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="cookie-types">
+        <span class="tp-section__eyebrow">Section 2</span>
+        <h2>Types of Cookies We Use</h2>
+        <div class="tp-table-wrap">
+          <table class="tp-table">
+            <thead>
+              <tr><th>Cookie Type</th><th>Purpose</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Essential</td><td>Required for the website to function (login, cart)</td><td>Session</td></tr>
+              <tr><td>Functional</td><td>Remember your preferences and language</td><td>1 year</td></tr>
+              <tr><td>Analytics</td><td>Understand how visitors use the site (Google Analytics)</td><td>2 years</td></tr>
+              <tr><td>Marketing</td><td>Show relevant ads and promotions</td><td>90 days</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <hr class="tp-divider" />
+
+      <div class="tp-section" id="cookie-control">
+        <span class="tp-section__eyebrow">Section 3</span>
+        <h2>Managing Cookies</h2>
+        <p>You can control and delete cookies through your browser settings. Note that disabling certain cookies may affect the functionality of our website.</p>
+        <ul>
+          <li>Chrome: Settings → Privacy → Cookies</li>
+          <li>Safari: Preferences → Privacy</li>
+          <li>Firefox: Options → Privacy &amp; Security</li>
+          <li>Edge: Settings → Cookies and site permissions</li>
+        </ul>
+        <div class="tp-callout">
+          <span class="tp-callout__icon">🍪</span>
+          <p>By continuing to use our website after seeing this notice, you consent to our use of non-essential cookies. You can withdraw consent at any time.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONTACT BOX (shared) -->
+    <div class="tp-contact">
+      <h3>Still have questions?</h3>
+      <p>Our team is happy to help with any questions about our terms, your data, or our policies.</p>
+      <div class="tp-contact__links">
+        <a href="mailto:hello@petcarespas.com" class="tp-contact__btn tp-contact__btn--primary">
+          <i class="fa fa-envelope"></i> Email Us
+        </a>
+        <a href="/pages/contact.html" class="tp-contact__btn tp-contact__btn--outline">
+          <i class="fa fa-phone"></i> Contact Page
+        </a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER NOTE -->
+<div class="tp-footer-note">
+  © 2026 PetCare Spa. All rights reserved. &nbsp;|&nbsp;
+  <a href="#" style="color: var(--pink); text-decoration: none;">petcarespas.vercel.app</a>
+</div>
+
+<script>
+     // Đọc tab từ URL (?tab=refund)
+  const urlTab = new URLSearchParams(location.search).get('tab');
+  if (urlTab) {
+    const btn = document.querySelector(`[onclick*="switchTabTerms('${urlTab}'"]`);
+    if (btn) switchTabTerms(urlTab, btn);
+  }
+  const panels = {
+    terms:   { id: 'panel-terms',   sections: ['terms-acceptance','terms-services','terms-booking','terms-liability','terms-ip','terms-changes'], labels: ['Acceptance','Our Services','Booking','Liability','IP','Changes'] },
+    privacy: { id: 'panel-privacy', sections: ['privacy-collect','privacy-use','privacy-share','privacy-rights','privacy-retention'], labels: ['Data Collected','How We Use It','Data Sharing','Your Rights','Retention'] },
+    refund:  { id: 'panel-refund',  sections: ['refund-cancellation','refund-service','refund-membership'], labels: ['Cancellation','Service Satisfaction','Memberships'] },
+    pet:     { id: 'panel-pet',     sections: ['pet-health','pet-behavior','pet-emergency','pet-photo'], labels: ['Health Requirements','Behavior','Emergencies','Photography'] },
+    cookie:  { id: 'panel-cookie',  sections: ['cookie-what','cookie-types','cookie-control'], labels: ['What Are Cookies','Types We Use','Managing Cookies'] },
+  };
+
+  function switchTabTerms(key, btn) {
+    // panels
+    document.querySelectorAll('.tp-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(panels[key].id).classList.add('active');
+    // tabs
+    document.querySelectorAll('.tp-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    // sidebar
+    buildSidebar(key);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function buildSidebar(key) {
+    const nav = document.getElementById('sidebar-nav');
+    nav.innerHTML = '';
+    const { sections, labels } = panels[key];
+    sections.forEach((id, i) => {
+      const a = document.createElement('a');
+      a.href = '#' + id;
+      a.className = 'tp-sidebar__link' + (i === 0 ? ' active' : '');
+      a.textContent = labels[i];
+      a.addEventListener('click', () => {
+        document.querySelectorAll('.tp-sidebar__link').forEach(l => l.classList.remove('active'));
+        a.classList.add('active');
+      });
+      nav.appendChild(a);
+    });
+  }
+
+  // Init sidebar for default tab
+  buildSidebar('terms');
+
+  // Scroll spy
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        document.querySelectorAll('.tp-sidebar__link').forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  document.querySelectorAll('.tp-section[id]').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

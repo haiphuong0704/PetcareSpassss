@@ -1,16 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-cache" }
-      ]
-    }
-  ],
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/((?!pages|components|public|assets).*)", "destination": "/index.html" }
+    { "source": "/home", "destination": "/pages/home.html" },
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/blog", "destination": "/pages/blog.html" },
+    { "source": "/booking", "destination": "/pages/booking.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/luxeservices", "destination": "/pages/luxeservices.html" },
+    { "source": "/membership", "destination": "/pages/membership.html" },
+    { "source": "/shop", "destination": "/pages/shop.html" },
+    { "source": "/spabites", "destination": "/pages/spabites.html" }
   ]
 }

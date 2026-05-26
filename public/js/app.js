@@ -34,7 +34,7 @@ async function loadComponent(id, file) {
 // ===============================
 async function showPage(page) {
   if (page === 'booking') {
-    window.location.href = './pages/booking.html';
+    window.location.href = '/pages/booking.html';
     return;
   }
   loaderStart();
@@ -43,7 +43,8 @@ async function showPage(page) {
   const html = await res.text();
   app.innerHTML = html;
 
-  history.pushState({ page }, "", page === 'home' ? '#' : `#${page}`);
+  const urlPath = page === 'home' ? '/' : `/${page}`;
+  history.pushState({ page }, "", urlPath);
 
   setTimeout(() => {
     observeFadeUps();
@@ -86,8 +87,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   Cart.render();
 
   // Lấy page từ URL path
-  const hash = location.hash.replace('#', '');
-  const page = hash || 'home';
+  const rawPath = location.pathname.replace(/^\//, '');
+  const page = (rawPath === '' || rawPath === 'index.html') ? 'home' : rawPath;
   showPage(page);
 
   // Promo popup
@@ -124,9 +125,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 // popstate khi nhấn Back/Forward
-window.addEventListener("popstate", () => {
-  const hash = location.hash.replace('#', '');
-  showPage(hash || 'home');
+window.addEventListener("popstate", (e) => {
+  const page = e.state?.page || "home";
+  showPage(page);
 });
 
 // ===============================
