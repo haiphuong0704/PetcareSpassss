@@ -43,7 +43,8 @@ async function showPage(page) {
   const html = await res.text();
   app.innerHTML = html;
 
-  history.pushState({ page }, "", `/${page}`);
+  const urlPath = page === 'home' ? '/' : `/${page}`;
+  history.pushState({ page }, "", urlPath);
 
   setTimeout(() => {
     observeFadeUps();
