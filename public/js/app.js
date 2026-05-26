@@ -555,7 +555,7 @@ var Cart = (function () {
     var n = count(), t = total();
     if (badge)  badge.textContent  = n;
     if (hCount) hCount.textContent = n + (n === 1 ? ' item' : ' items');
-    if (subtot) subtot.textContent = '$' + t.toFixed(2);
+    if (subtot) subtot.textContent = t.toFixed(3) + 'Đ';
     if (items.length === 0) {
       body.innerHTML = ''; body.style.display = 'none';
       if (empty)  empty.classList.add('show');
