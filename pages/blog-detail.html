@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Prepare Your Dog for Their First Boarding Stay — PetCare Spa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --pink:        #d4317e;
+      --pink-deep:   #a8185a;
+      --pink-dark:   #7c2341;
+      --pink-pale:   #fdf2f8;
+      --pink-border: #e3cdd5;
+      --teal:        #2dd4bf;
+      --teal-dark:   #0e9f8e;
+      --gold:        #f59e0b;
+      --white:       #fff;
+      --dark:        #1a0e12;
+      --gray:        #6b7280;
+      --border:      #f0e6ec;
+      --font-body:   'Manrope', sans-serif;
+      --font-display:'Playfair Display', Georgia, serif;
+      --font-hand:   'Caveat', cursive;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);color:var(--dark);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+    /* ── NAV ── */
+    .bd-nav{
+      position:sticky;top:0;z-index:999;
+      height:68px;background:#fff;
+      border-bottom:1.5px solid var(--border);
+      box-shadow:0 2px 20px rgba(212,49,126,.06);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 40px;
+    }
+    .bd-nav__logo{
+      font-family:var(--font-display);font-size:1.35rem;font-weight:500;
+      letter-spacing:1.5px;text-transform:uppercase;
+      color:var(--dark);text-decoration:none;
+    }
+    .bd-nav__logo span{color:var(--pink);}
+    .bd-nav__back{
+      display:inline-flex;align-items:center;gap:7px;
+      font-size:.82rem;font-weight:700;color:var(--gray);
+      text-decoration:none;padding:7px 16px;
+      border:1.5px solid var(--border);border-radius:999px;
+      transition:.2s;
+    }
+    .bd-nav__back:hover{color:var(--pink);border-color:var(--pink-border);background:var(--pink-pale);}
+
+    /* ── HERO ── */
+    .bd-hero{
+      position:relative;
+      height:520px;
+      overflow:hidden;
+    }
+    .bd-hero__img{
+      width:100%;height:100%;
+      object-fit:cover;display:block;
+      filter:brightness(.55);
+    }
+    .bd-hero__overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to bottom, transparent 30%, rgba(26,14,18,.85) 100%);
+    }
+    .bd-hero__content{
+      position:absolute;bottom:0;left:0;right:0;
+      padding:48px 40px;
+      max-width:860px;
+    }
+    .bd-hero__tag{
+      display:inline-flex;align-items:center;gap:7px;
+      background:var(--pink);color:#fff;
+      font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+      padding:5px 14px;border-radius:999px;margin-bottom:16px;
+    }
+    .bd-hero__title{
+      font-family:var(--font-display);
+      font-size:clamp(1.8rem,4vw,3rem);
+      font-weight:500;color:#fff;
+      line-height:1.2;letter-spacing:-.02em;
+      margin-bottom:18px;
+    }
+    .bd-hero__meta{
+      display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    }
+    .bd-hero__meta-item{
+      display:flex;align-items:center;gap:7px;
+      font-size:.8rem;color:rgba(255,255,255,.7);font-weight:600;
+    }
+    .bd-hero__meta-item i{color:var(--teal);font-size:.75rem;}
+    .bd-hero__avatar{
+      width:32px;height:32px;border-radius:50%;
+      object-fit:cover;border:2px solid var(--teal);
+    }
+
+    /* ── LAYOUT ── */
+    .bd-layout{
+      max-width:1160px;margin:0 auto;
+      padding:64px 40px 100px;
+      display:grid;
+      grid-template-columns:1fr 300px;
+      gap:64px;
+      align-items:start;
+    }
+
+    /* ── ARTICLE ── */
+    .bd-article{}
+
+    /* Progress bar */
+    .bd-progress{
+      position:fixed;top:68px;left:0;right:0;
+      height:3px;background:var(--border);z-index:998;
+    }
+    .bd-progress__fill{
+      height:100%;width:0%;
+      background:linear-gradient(90deg,var(--pink),var(--teal));
+      transition:width .1s linear;
+    }
+
+    /* Content typography */
+    .bd-content{font-size:1rem;line-height:1.9;color:#3a2a30;}
+
+    .bd-content p{margin-bottom:24px;}
+
+    .bd-content h2{
+      font-family:var(--font-display);
+      font-size:clamp(1.4rem,2.5vw,1.9rem);
+      font-weight:500;color:var(--dark);
+      letter-spacing:-.02em;line-height:1.2;
+      margin:48px 0 18px;
+    }
+
+    .bd-content h3{
+      font-family:var(--font-display);
+      font-size:1.15rem;font-weight:500;
+      color:var(--dark);margin:32px 0 12px;
+    }
+
+    .bd-content ul,
+    .bd-content ol{
+      padding-left:0;list-style:none;
+      display:flex;flex-direction:column;gap:12px;
+      margin-bottom:24px;
+    }
+    .bd-content ul li,
+    .bd-content ol li{
+      display:flex;align-items:flex-start;gap:12px;
+      font-size:.95rem;line-height:1.75;
+    }
+    .bd-content ul li::before{
+      content:'🐾';font-size:.8rem;flex-shrink:0;margin-top:3px;
+    }
+    .bd-content ol{counter-reset:ol;}
+    .bd-content ol li{counter-increment:ol;}
+    .bd-content ol li::before{
+      content:counter(ol);
+      width:22px;height:22px;border-radius:50%;
+      background:var(--pink-pale);border:1.5px solid var(--pink-border);
+      color:var(--pink);font-size:.72rem;font-weight:800;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;margin-top:2px;
+    }
+
+    .bd-content strong{color:var(--dark);font-weight:700;}
+
+    /* Pullquote */
+    .bd-pullquote{
+      margin:40px 0;
+      padding:28px 32px;
+      border-left:4px solid var(--pink);
+      background:var(--pink-pale);
+      border-radius:0 16px 16px 0;
+    }
+    .bd-pullquote p{
+      font-family:var(--font-display);
+      font-size:1.15rem;font-style:italic;
+      color:var(--pink-dark);line-height:1.7;
+      margin:0;
+    }
+    .bd-pullquote cite{
+      display:block;margin-top:10px;
+      font-size:.78rem;font-weight:700;color:var(--gray);
+      font-style:normal;letter-spacing:.04em;
+    }
+
+    /* Tip box */
+    .bd-tip{
+      background:#fff;
+      border:1.5px solid var(--border);
+      border-radius:20px;
+      padding:24px 28px;
+      margin:32px 0;
+      display:flex;gap:16px;
+      box-shadow:0 4px 16px rgba(26,14,18,.05);
+    }
+    .bd-tip__icon{font-size:1.6rem;flex-shrink:0;margin-top:2px;}
+    .bd-tip__title{font-weight:800;font-size:.88rem;color:var(--dark);margin-bottom:6px;}
+    .bd-tip p{margin:0;font-size:.88rem;color:#4a3840;line-height:1.7;}
+
+    /* Inline image */
+    .bd-img{
+      width:100%;border-radius:20px;
+      overflow:hidden;margin:32px 0;
+    }
+    .bd-img img{
+      width:100%;height:320px;
+      object-fit:cover;display:block;
+    }
+    .bd-img figcaption{
+      font-size:.75rem;color:var(--gray);
+      text-align:center;padding:10px 0 0;
+      font-style:italic;
+    }
+
+    /* Checklist */
+    .bd-checklist{
+      background:linear-gradient(135deg,#fff,var(--pink-pale));
+      border:1.5px solid var(--pink-border);
+      border-radius:20px;padding:28px;margin:32px 0;
+    }
+    .bd-checklist__title{
+      font-family:var(--font-display);font-size:1.05rem;font-weight:500;
+      color:var(--dark);margin-bottom:16px;
+    }
+    .bd-checklist ul{margin:0;}
+    .bd-checklist ul li::before{content:'✓';
+      background:var(--pink);color:#fff;
+      width:20px;height:20px;border-radius:50%;
+      font-size:.68rem;font-weight:900;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    }
+
+    /* Tags */
+    .bd-tags{
+      display:flex;flex-wrap:wrap;gap:8px;
+      margin-top:48px;padding-top:32px;
+      border-top:1.5px solid var(--border);
+    }
+    .bd-tag{
+      padding:6px 16px;border-radius:999px;
+      background:var(--pink-pale);color:var(--pink);
+      font-size:.75rem;font-weight:700;letter-spacing:.04em;
+      border:1px solid var(--pink-border);
+    }
+
+    /* Share */
+    .bd-share{
+      display:flex;align-items:center;gap:12px;
+      margin-top:24px;
+    }
+    .bd-share__label{font-size:.78rem;font-weight:700;color:var(--gray);}
+    .bd-share__btn{
+      width:36px;height:36px;border-radius:50%;
+      border:1.5px solid var(--border);background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--gray);cursor:pointer;font-size:.85rem;
+      transition:.2s;text-decoration:none;
+    }
+    .bd-share__btn:hover{background:var(--pink);color:#fff;border-color:var(--pink);}
+
+    /* ── SIDEBAR ── */
+    .bd-sidebar{position:sticky;top:88px;}
+
+    .bd-sidebar__block{
+      background:#fff;
+      border:1.5px solid var(--border);
+      border-radius:20px;padding:24px;
+      margin-bottom:24px;
+      box-shadow:0 4px 16px rgba(26,14,18,.04);
+    }
+    .bd-sidebar__title{
+      font-size:.7rem;font-weight:800;
+      letter-spacing:.14em;text-transform:uppercase;
+      color:var(--gray);margin-bottom:16px;
+    }
+
+    /* TOC */
+    .bd-toc{list-style:none;display:flex;flex-direction:column;gap:2px;}
+    .bd-toc a{
+      display:block;padding:8px 10px;
+      font-size:.82rem;font-weight:600;color:#4a3840;
+      text-decoration:none;border-radius:8px;
+      border-left:2px solid transparent;
+      transition:.18s;
+    }
+    .bd-toc a:hover{background:var(--pink-pale);color:var(--pink);}
+    .bd-toc a.active{background:var(--pink-pale);color:var(--pink);border-left-color:var(--pink);}
+
+    /* Author */
+    .bd-author{display:flex;gap:14px;align-items:flex-start;}
+    .bd-author__avatar{
+      width:52px;height:52px;border-radius:50%;
+      object-fit:cover;border:2px solid var(--pink-border);
+      flex-shrink:0;
+    }
+    .bd-author__name{font-weight:800;font-size:.9rem;color:var(--dark);margin-bottom:3px;}
+    .bd-author__role{font-size:.75rem;color:var(--gray);margin-bottom:8px;}
+    .bd-author__bio{font-size:.78rem;color:#4a3840;line-height:1.6;}
+
+    /* Related */
+    .bd-related{display:flex;flex-direction:column;gap:14px;}
+    .bd-related-card{
+      display:flex;gap:12px;align-items:center;
+      text-decoration:none;padding:10px;
+      border-radius:12px;transition:.2s;
+    }
+    .bd-related-card:hover{background:var(--pink-pale);}
+    .bd-related-card__img{
+      width:60px;height:60px;border-radius:10px;
+      object-fit:cover;flex-shrink:0;
+    }
+    .bd-related-card__tag{font-size:.65rem;font-weight:800;color:var(--teal-dark);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+    .bd-related-card__title{font-size:.8rem;font-weight:700;color:var(--dark);line-height:1.4;}
+
+    /* CTA */
+    .bd-cta{
+      background:linear-gradient(145deg,#1a0e12,#2b1620);
+      border-radius:20px;padding:28px;
+      text-align:center;color:#fff;
+    }
+    .bd-cta__icon{font-size:2rem;margin-bottom:12px;}
+    .bd-cta h4{font-family:var(--font-display);font-size:1.1rem;font-weight:400;margin-bottom:8px;}
+    .bd-cta p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:16px;}
+    .bd-cta__btn{
+      display:block;background:var(--pink);color:#fff;
+      padding:11px 20px;border-radius:999px;
+      font-size:.82rem;font-weight:700;text-decoration:none;
+      transition:.2s;
+    }
+    .bd-cta__btn:hover{background:var(--pink-deep);}
+
+    /* ── MORE POSTS ── */
+    .bd-more{
+      background:#fdf8fb;
+      border-top:1.5px solid var(--border);
+      padding:64px 40px;
+    }
+    .bd-more__inner{max-width:1160px;margin:0 auto;}
+    .bd-more__head{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-bottom:36px;
+    }
+    .bd-more__head h2{
+      font-family:var(--font-display);
+      font-size:1.6rem;font-weight:400;color:var(--dark);
+    }
+    .bd-more__head a{
+      font-size:.82rem;font-weight:700;color:var(--pink);
+      text-decoration:none;
+    }
+    .bd-more__grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+    }
+    .bd-more-card{
+      background:#fff;border-radius:18px;overflow:hidden;
+      border:1px solid var(--border);
+      transition:.2s;cursor:pointer;text-decoration:none;
+      display:block;
+    }
+    .bd-more-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(212,49,126,.12);}
+    .bd-more-card__img{height:160px;overflow:hidden;}
+    .bd-more-card__img img{width:100%;height:100%;object-fit:cover;transition:.4s;}
+    .bd-more-card:hover .bd-more-card__img img{transform:scale(1.05);}
+    .bd-more-card__body{padding:18px;}
+    .bd-more-card__tag{font-size:.65rem;font-weight:800;color:var(--teal-dark);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+    .bd-more-card__title{font-size:.9rem;font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:8px;}
+    .bd-more-card__meta{font-size:.75rem;color:var(--gray);}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .bd-layout{grid-template-columns:1fr;gap:40px;}
+      .bd-sidebar{position:static;}
+      .bd-hero{height:360px;}
+      .bd-hero__content{padding:28px 20px;}
+      .bd-more__grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:600px){
+      .bd-nav{padding:0 16px;}
+      .bd-layout{padding:40px 16px 80px;}
+      .bd-hero{height:300px;}
+      .bd-more{padding:40px 16px;}
+      .bd-more__grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- READING PROGRESS -->
+<div class="bd-progress"><div class="bd-progress__fill" id="progress"></div></div>
+
+<!-- NAV -->
+<nav class="bd-nav">
+  <a href="/" class="bd-nav__logo">Petcare <span>Spa</span></a>
+  <a href="/#blog" class="bd-nav__back"><i class="fa fa-arrow-left"></i> All Posts</a>
+</nav>
+
+<!-- HERO -->
+<div class="bd-hero">
+  <img class="bd-hero__img" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1400&q=85" alt="Dog boarding"/>
+  <div class="bd-hero__overlay"></div>
+  <div class="bd-hero__content">
+    <span class="bd-hero__tag"><i class="fa fa-tag"></i> Care Tips</span>
+    <h1 class="bd-hero__title">How to Prepare Your Dog for<br>Their First Boarding Stay</h1>
+    <div class="bd-hero__meta">
+      <div class="bd-hero__meta-item">
+        <img class="bd-hero__avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&q=80" alt="Author"/>
+        Linh Nguyen, Pet Wellness Specialist
+      </div>
+      <div class="bd-hero__meta-item"><i class="fa fa-calendar-alt"></i> May 10, 2026</div>
+      <div class="bd-hero__meta-item"><i class="fa fa-clock"></i> 5 min read</div>
+    </div>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="bd-layout">
+
+  <!-- ARTICLE -->
+  <article class="bd-article">
+    <div class="bd-content">
+
+      <p>Leaving your dog at a boarding facility for the first time can feel nerve-wracking — for both of you. But with the right preparation, your pup can settle in quickly, feel safe, and maybe even enjoy the adventure. Here's everything you need to know before drop-off day.</p>
+
+      <h2 id="why-prep-matters">Why Preparation Makes All the Difference</h2>
+      <p>Dogs are creatures of habit. Sudden changes in environment, routine, and social interactions can trigger anxiety — especially in younger or more sensitive dogs. A little groundwork at home goes a long way toward helping your dog feel calm and confident when they arrive at the facility.</p>
+
+      <div class="bd-pullquote">
+        <p>"A dog that feels secure in their environment will adapt to a new one far more gracefully than one who hasn't been prepared."</p>
+        <cite>— Linh Nguyen, Pet Wellness Specialist at PetCare Spa</cite>
+      </div>
+
+      <h2 id="visit-first">Visit the Facility First</h2>
+      <p>Before the actual stay, schedule a short visit with your dog. Let them sniff around, meet the staff, and get comfortable with the sights, sounds and smells. Most quality boarding facilities like PetCare Spa welcome trial visits — they want your dog to feel at home too.</p>
+
+      <figure class="bd-img">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80" alt="Dog meeting boarding staff"/>
+        <figcaption>A friendly meet-and-greet helps dogs associate the facility with positive experiences.</figcaption>
+      </figure>
+
+      <h2 id="vaccinations">Health Records & Vaccinations</h2>
+      <p>Most reputable boarding facilities require up-to-date vaccinations to keep all animals safe. Make sure you have the following ready before your dog's stay:</p>
+
+      <ul>
+        <li>Rabies vaccination (required by law in most regions)</li>
+        <li>DHPP (distemper, hepatitis, parvovirus, parainfluenza)</li>
+        <li>Bordetella (kennel cough) — especially important for group stays</li>
+        <li>Flea and tick treatment within the last 30 days</li>
+      </ul>
+
+      <div class="bd-tip">
+        <span class="bd-tip__icon">💡</span>
+        <div>
+          <div class="bd-tip__title">Pro Tip</div>
+          <p>Bring a physical copy of your dog's vaccination records as well as a digital backup on your phone. Some facilities won't accept dogs without documentation on arrival day.</p>
+        </div>
+      </div>
+
+      <h2 id="comfort-items">Pack Comfort Items from Home</h2>
+      <p>Familiar smells are incredibly calming for dogs. Bringing items from home can reduce separation anxiety significantly and help your dog settle faster into their new temporary space.</p>
+
+      <div class="bd-checklist">
+        <div class="bd-checklist__title">🎒 What to Pack for Your Dog</div>
+        <ul>
+          <li>A worn t-shirt or blanket with your scent on it</li>
+          <li>Their regular food (to avoid digestive upsets from diet changes)</li>
+          <li>A favourite toy or chew (clearly labelled with their name)</li>
+          <li>Any medications with written dosage instructions</li>
+          <li>Emergency contact numbers including your vet</li>
+        </ul>
+      </div>
+
+      <h2 id="routine">Stick to Their Routine as Long as Possible</h2>
+      <p>In the days leading up to the boarding stay, keep your dog's feeding schedule, walk times and sleep routine as consistent as possible. A dog arriving at a facility already tired from disrupted sleep will be far more stressed than one that's well-rested.</p>
+
+      <p>On the morning of drop-off, keep your energy calm and upbeat. Dogs are incredibly attuned to their owners' emotions — if you're anxious, they'll feel it. A cheerful, matter-of-fact goodbye is much better than a lengthy, emotional farewell.</p>
+
+      <h2 id="socialisation">Socialisation Practice</h2>
+      <p>If your dog hasn't spent much time around other dogs, it's worth arranging a few playdates or visits to a dog park beforehand. Boarding facilities often involve some level of group interaction, and a dog that's comfortable around peers will have a much better time.</p>
+
+      <figure class="bd-img">
+        <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=800&q=80" alt="Dogs socialising at play"/>
+        <figcaption>Dogs with regular social exposure adapt faster to group boarding environments.</figcaption>
+      </figure>
+
+      <h2 id="after">What to Expect When You Pick Them Up</h2>
+      <p>Don't be alarmed if your dog seems a little tired or subdued when you collect them — this is completely normal. They've had a full schedule of activity and stimulation. Some dogs sleep for an entire day after boarding. Others bounce off the walls with excitement. Both are normal responses.</p>
+
+      <ul>
+        <li>Check for any scratches or minor injuries (usually harmless from play)</li>
+        <li>Rehydrate them with fresh water as soon as you're home</li>
+        <li>Give them space to decompress — avoid immediately introducing visitors</li>
+        <li>Expect some extra clinginess for a day or two — it's their way of reconnecting</li>
+      </ul>
+
+      <div class="bd-tip">
+        <span class="bd-tip__icon">🐾</span>
+        <div>
+          <div class="bd-tip__title">At PetCare Spa</div>
+          <p>All boarding guests receive a daily activity update and optional photo check-ins. Our team is available 24/7 and your dog will have access to our outdoor play zones, organic meal options, and cosy sleeping suites.</p>
+        </div>
+      </div>
+
+      <p>With the right preparation, your dog's first boarding stay doesn't have to be stressful — it can be the start of a wonderful routine that gives you peace of mind every time you travel.</p>
+
+    </div>
+
+    <!-- TAGS -->
+    <div class="bd-tags">
+      <span class="bd-tag">Care Tips</span>
+      <span class="bd-tag">Boarding</span>
+      <span class="bd-tag">Dog Wellness</span>
+      <span class="bd-tag">First Time</span>
+      <span class="bd-tag">Anxiety</span>
+    </div>
+
+    <!-- SHARE -->
+    <div class="bd-share" style="margin-top:20px;">
+      <span class="bd-share__label">Share:</span>
+      <a href="#" class="bd-share__btn"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="bd-share__btn"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="bd-share__btn"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" class="bd-share__btn"><i class="fa fa-link"></i></a>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="bd-sidebar">
+
+    <!-- TOC -->
+    <div class="bd-sidebar__block">
+      <div class="bd-sidebar__title">In this article</div>
+      <ul class="bd-toc">
+        <li><a href="#why-prep-matters" class="active">Why Preparation Matters</a></li>
+        <li><a href="#visit-first">Visit the Facility First</a></li>
+        <li><a href="#vaccinations">Health Records</a></li>
+        <li><a href="#comfort-items">Pack Comfort Items</a></li>
+        <li><a href="#routine">Stick to Routine</a></li>
+        <li><a href="#socialisation">Socialisation Practice</a></li>
+        <li><a href="#after">When You Pick Them Up</a></li>
+      </ul>
+    </div>
+
+    <!-- AUTHOR -->
+    <div class="bd-sidebar__block">
+      <div class="bd-sidebar__title">Written by</div>
+      <div class="bd-author">
+        <img class="bd-author__avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&q=80" alt="Author"/>
+        <div>
+          <div class="bd-author__name">Linh Nguyen</div>
+          <div class="bd-author__role">Pet Wellness Specialist</div>
+          <div class="bd-author__bio">5 years at PetCare Spa. Certified canine behaviourist and organic nutrition advocate.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED -->
+    <div class="bd-sidebar__block">
+      <div class="bd-sidebar__title">Related posts</div>
+      <div class="bd-related">
+        <a href="#" class="bd-related-card">
+          <img class="bd-related-card__img" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=120&q=80" alt=""/>
+          <div>
+            <div class="bd-related-card__tag">Rehabilitation</div>
+            <div class="bd-related-card__title">What is Canine Physical Rehabilitation?</div>
+          </div>
+        </a>
+        <a href="#" class="bd-related-card">
+          <img class="bd-related-card__img" src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=120&q=80" alt=""/>
+          <div>
+            <div class="bd-related-card__tag">Nutrition</div>
+            <div class="bd-related-card__title">Why Organic Food Is the Smartest Investment</div>
+          </div>
+        </a>
+        <a href="#" class="bd-related-card">
+          <img class="bd-related-card__img" src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=120&q=80" alt=""/>
+          <div>
+            <div class="bd-related-card__tag">Grooming</div>
+            <div class="bd-related-card__title">Spring Grooming Guide: Coat-Ready Tips</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bd-cta">
+      <div class="bd-cta__icon">🏨</div>
+      <h4>Ready to book a boarding stay?</h4>
+      <p>Our luxury suites are available year-round. Your pet will love it here.</p>
+      <a href="/pages/booking.html" class="bd-cta__btn">Book Now →</a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- MORE POSTS -->
+<div class="bd-more">
+  <div class="bd-more__inner">
+    <div class="bd-more__head">
+      <h2>More from the blog</h2>
+      <a href="/#blog">View all posts →</a>
+    </div>
+    <div class="bd-more__grid">
+      <a href="#" class="bd-more-card">
+        <div class="bd-more-card__img"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&q=80" alt=""/></div>
+        <div class="bd-more-card__body">
+          <div class="bd-more-card__tag">Rehabilitation</div>
+          <div class="bd-more-card__title">What is Canine Physical Rehabilitation and Who Needs It?</div>
+          <div class="bd-more-card__meta">April 28, 2026 · 7 min read</div>
+        </div>
+      </a>
+      <a href="#" class="bd-more-card">
+        <div class="bd-more-card__img"><img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&q=80" alt=""/></div>
+        <div class="bd-more-card__body">
+          <div class="bd-more-card__tag">Nutrition</div>
+          <div class="bd-more-card__title">Why Organic Food Is the Smartest Investment for Your Pet</div>
+          <div class="bd-more-card__meta">March 30, 2026 · 6 min read</div>
+        </div>
+      </a>
+      <a href="#" class="bd-more-card">
+        <div class="bd-more-card__img"><img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?w=400&q=80" alt=""/></div>
+        <div class="bd-more-card__body">
+          <div class="bd-more-card__tag">Nutrition</div>
+          <div class="bd-more-card__title">The Best Foods to Support Your Dog's Joint Health</div>
+          <div class="bd-more-card__meta">March 12, 2026 · 5 min read</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    document.getElementById('progress').style.width = (scrolled / total * 100) + '%';
+  });
+
+  // TOC active highlight
+  const sections = document.querySelectorAll('.bd-content h2[id]');
+  const tocLinks = document.querySelectorAll('.bd-toc a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.bd-toc a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  // Share copy link
+  document.querySelector('.bd-share__btn:last-child').addEventListener('click', e => {
+    e.preventDefault();
+    navigator.clipboard.writeText(location.href).then(() => {
+      const btn = e.currentTarget;
+      btn.innerHTML = '<i class="fa fa-check"></i>';
+      setTimeout(() => btn.innerHTML = '<i class="fa fa-link"></i>', 2000);
+    });
+  });
+</script>
+</body>
+</html>
