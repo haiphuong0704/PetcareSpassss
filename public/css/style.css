@@ -2334,8 +2334,8 @@ section {
 .promo-cta:hover {
   background: var(--pink-deep);
 }
-
-/* MEMBERSHIP BENEFITS TABLE */
+/*
+ MEMBERSHIP BENEFITS TABLE 
 .benefits-section {
   background: #fff;
   padding: 70px 32px;
@@ -2435,7 +2435,7 @@ section {
     font-size: 15px;
   }
 }
-
+*/
 /* CONTACT LAYOUT */
 .contact-layout {
   display: grid;
