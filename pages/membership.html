@@ -466,7 +466,7 @@
     .stage-selector { gap: 0; }
     .stage-item { width: 100px; }
   }
-  /* ─── Membership Plans Section ─────────────────────────────────── */
+    /* ─── Membership Plans Section ─────────────────────────────────── */
   .mb-tiers {
     padding: 80px 40px;
     background: linear-gradient(160deg, #fffafb 0%, #fff1f5 100%);
@@ -477,7 +477,6 @@
     margin: 0 auto;
   }
  
-  /* Section header */
   .mb-tiers .section-header {
     text-align: center;
     margin-bottom: 56px;
@@ -504,7 +503,7 @@
  
   .mb-tiers .section-header h2 em {
     font-style: italic;
-    color: #c0593b;
+    color: #a63558;
   }
  
   .mb-tiers .section-header p {
@@ -520,8 +519,8 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: .9rem;
-    color: #c0593b;
-    opacity: .7;
+    color: #a63558;
+    opacity: .6;
     margin-top: 6px;
   }
  
@@ -536,46 +535,45 @@
   /* Card base */
   .mb-tier-card {
     position: relative;
-    background: rgba(255,255,255,.85);
-    backdrop-filter: blur(14px);
+    background: #ffffff;
     border-radius: 28px;
-    border: 1.5px solid rgba(255,255,255,.8);
+    border: 1.5px solid #fce4ee;
     padding: 36px 30px 32px;
-    box-shadow: 0 10px 32px rgba(59,26,14,.07);
-    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow: 0 8px 28px rgba(166,53,88,.07);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
  
   .mb-tier-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(59,26,14,.13);
+    border-color: #f9b8d0;
+    box-shadow: 0 20px 48px rgba(166,53,88,.13);
   }
  
-  /* Featured / most popular */
+  /* Featured */
   .mb-tier-card--featured {
-    background: #3b1a0e;
-    border-color: #c0593b;
-    box-shadow: 0 16px 48px rgba(59,26,14,.22);
-    transform: translateY(-8px) scale(1.02);
+    background: linear-gradient(160deg, #fff0f5 0%, #fce4ee 100%);
+    border: 2px solid #f9b8d0;
+    box-shadow: 0 16px 48px rgba(166,53,88,.15);
+    transform: translateY(-10px) scale(1.02);
   }
  
   .mb-tier-card--featured:hover {
-    transform: translateY(-14px) scale(1.02);
-    box-shadow: 0 28px 64px rgba(59,26,14,.28);
+    transform: translateY(-16px) scale(1.02);
+    box-shadow: 0 28px 64px rgba(166,53,88,.2);
   }
  
   /* Badge */
   .mb-tier-card__badge {
     display: inline-block;
-    background: #c0593b;
+    background: #2dd4bf;
     color: #fff;
     font-size: .72rem;
     font-weight: 800;
     letter-spacing: .1em;
     text-transform: uppercase;
-    padding: 4px 14px;
+    padding: 5px 16px;
     border-radius: 30px;
     margin-bottom: 18px;
     width: fit-content;
@@ -594,10 +592,6 @@
     margin-bottom: 12px;
   }
  
-  .mb-tier-card--featured .mb-tier-card__name {
-    color: #fff;
-  }
- 
   .mb-tier-card__price {
     display: flex;
     align-items: baseline;
@@ -609,20 +603,12 @@
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: #c0593b;
-  }
- 
-  .mb-tier-card--featured .mb-tier-card__price strong {
-    color: #f4b394;
+    color: #a63558;
   }
  
   .mb-tier-card__price span {
     font-size: .85rem;
     color: #9b7060;
-  }
- 
-  .mb-tier-card--featured .mb-tier-card__price span {
-    color: #c9a090;
   }
  
   .mb-tier-card__tagline {
@@ -632,26 +618,22 @@
     margin: 0;
   }
  
-  .mb-tier-card--featured .mb-tier-card__tagline {
-    color: #c9a090;
-  }
- 
-  /* Divider */
   .mb-tier-card__header::after {
     content: '';
     display: block;
     width: 40px;
     height: 2px;
-    background: rgba(192,89,59,.3);
+    background: #2dd4bf;
     border-radius: 2px;
     margin-top: 20px;
+    opacity: .5;
   }
  
   .mb-tier-card--featured .mb-tier-card__header::after {
-    background: rgba(244,179,148,.35);
+    opacity: 1;
   }
  
-  /* Features list */
+  /* Features */
   .mb-tier-card__features {
     list-style: none;
     padding: 0;
@@ -671,10 +653,6 @@
     line-height: 1.45;
   }
  
-  .mb-tier-card--featured .mb-tier-card__features li {
-    color: #e8c8b8;
-  }
- 
   .mb-tier-card__features li::before {
     content: '';
     flex-shrink: 0;
@@ -685,7 +663,7 @@
     background: #2dd4bf url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l2.8 2.8L10 3' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat;
   }
  
-  /* CTA button */
+  /* CTA */
   .mb-tier-card__cta {
     display: block;
     text-align: center;
@@ -698,26 +676,24 @@
     margin-bottom: 14px;
   }
  
-  /* outline variant (Essential & Elite) */
-  .mb-tier-card:not(.mb-tier-card--featured) .btn-outline {
-    border: 2px solid #c0593b;
-    color: #c0593b;
+  .btn-outline-pink {
+    border: 2px solid #f9b8d0;
+    color: #a63558;
     background: transparent;
   }
  
-  .mb-tier-card:not(.mb-tier-card--featured) .btn-outline:hover {
-    background: #c0593b;
-    color: #fff;
+  .btn-outline-pink:hover {
+    background: #fce4ee;
+    border-color: #a63558;
   }
  
-  /* solid variant (Premium) */
-  .mb-tier-card--featured .btn-primary {
+  .btn-teal {
     background: #2dd4bf;
     color: #fff;
     border: 2px solid #2dd4bf;
   }
  
-  .mb-tier-card--featured .btn-primary:hover {
+  .btn-teal:hover {
     background: #0e9f8e;
     border-color: #0e9f8e;
   }
@@ -725,13 +701,9 @@
   /* Note */
   .mb-tier-card__note {
     font-size: .75rem;
-    color: #9b7060;
+    color: #b89090;
     text-align: center;
     margin: 0;
-  }
- 
-  .mb-tier-card--featured .mb-tier-card__note {
-    color: #a07060;
   }
  
   /* Footnote */
@@ -742,25 +714,15 @@
     margin-top: 40px;
   }
  
-  /* ─── Responsive ──────────────────────────────────────────────── */
   @media (max-width: 900px) {
-    .mb-tiers {
-      padding: 60px 20px;
-    }
- 
+    .mb-tiers { padding: 60px 20px; }
     .mb-tiers__grid {
       grid-template-columns: 1fr;
       max-width: 440px;
       margin: 0 auto;
     }
- 
-    .mb-tier-card--featured {
-      transform: none;
-    }
- 
-    .mb-tier-card--featured:hover {
-      transform: translateY(-6px);
-    }
+    .mb-tier-card--featured { transform: none; }
+    .mb-tier-card--featured:hover { transform: translateY(-6px); }
   }
 </style>
 
