@@ -469,48 +469,42 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     opacity:1;
 }
     /* ── SUCCESS ── */
-    .success-screen{
-    text-align:center;
-    padding: 50px 20px 80px;
-    animation: fadeUp .5s ease;
+    /* SUCCESS */
+.success-screen{
+    display:none;
+    padding:60px 20px 90px;
 }
 
-.success-confetti{
-    font-size: 18px;
-    margin-bottom: 12px;
-    opacity: .8;
-    letter-spacing: 6px;
+.success-screen.active{
+    display:block;
+    animation:fadeUp .5s ease;
 }
 
-.success-icon-wrap{
-    display:flex;
-    justify-content:center;
-    margin-bottom: 20px;
-}
-
-.success-icon{
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.success-card{
+    max-width:760px;
+    margin:0 auto;
 
     background:
-        linear-gradient(
-            135deg,
-            #2dd4bf,
-            #0ea5a4
-        );
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.96),
+        rgba(255,250,252,.98)
+      );
 
-    color:#fff;
-    font-size: 40px;
-    font-weight: 900;
+    border:1px solid rgba(236,72,153,.12);
+
+    border-radius:32px;
+
+    padding:42px;
 
     box-shadow:
-        0 20px 40px rgba(45,212,191,.28),
-        0 0 0 10px rgba(45,212,191,.10);
+      0 20px 60px rgba(166,53,88,.10);
+}
+
+/* TOP */
+.success-top{
+    text-align:center;
+    margin-bottom:34px;
 }
 
 .success-badge{
@@ -518,102 +512,238 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     align-items:center;
     gap:8px;
 
-    padding: 8px 16px;
-    border-radius: 999px;
+    padding:8px 16px;
 
-    background:#f0fdfa;
-    color:#0f766e;
+    border-radius:999px;
 
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    background:#fdf2f8;
 
-    margin-bottom: 20px;
+    color:#db2777;
+
+    font-size:.75rem;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+
+    margin-bottom:26px;
 }
 
-.success-title{
-    font-family: var(--font-display);
-    font-size: clamp(2rem,4vw,3rem);
-    line-height: 1.1;
-    color: var(--brown);
-    margin-bottom: 14px;
+.success-icon-wrap{
+    position:relative;
+    width:120px;
+    height:120px;
+    margin:0 auto 26px;
 }
 
-.success-title em{
-    color: var(--pink);
-    font-style: italic;
+.success-icon-ring{
+    position:absolute;
+    inset:0;
+
+    border-radius:50%;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(45,212,191,.18),
+        rgba(45,212,191,0)
+      );
+
+    animation:pulse 2.5s infinite;
 }
 
-.success-desc{
-    max-width: 560px;
-    margin: 0 auto 34px;
+.success-icon{
+    position:absolute;
+    inset:14px;
 
-    font-size: .96rem;
-    line-height: 1.8;
-    color: var(--brown-mid);
-}
+    border-radius:50%;
 
-.success-details{
-    max-width: 620px;
-    margin: 0 auto 34px;
-
-    background: rgba(255,255,255,.85);
-    backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(249,184,208,.45);
-    border-radius: 28px;
-
-    padding: 10px;
-
-    box-shadow:
-        0 20px 50px rgba(166,53,88,.08);
-}
-
-.success-detail-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding: 18px 20px;
-    border-bottom: 1px solid #f6e4ec;
-}
-
-.success-detail-row:last-child{
-    border-bottom:none;
-}
-
-.success-detail-left{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.success-detail-left span{
-    width:44px;
-    height:44px;
-    border-radius:14px;
+    background:
+      linear-gradient(
+        135deg,
+        #2dd4bf,
+        #14b8a6
+      );
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:#fff4f8;
+    font-size:2.5rem;
 
-    font-size: 18px;
+    box-shadow:
+      0 18px 40px rgba(45,212,191,.35);
 }
 
-.success-detail-left p{
-    font-size: .82rem;
-    color: var(--brown-light);
-    margin:0;
+.success-title{
+    font-family:var(--font-display);
+    font-size:2.5rem;
+    color:var(--brown);
+
+    margin-bottom:14px;
 }
 
-.success-detail-row strong{
-    color: var(--brown);
-    font-size: .95rem;
+.success-title em{
+    color:var(--pink);
+    font-style:italic;
 }
 
+.success-desc{
+    max-width:520px;
+    margin:0 auto;
+
+    font-size:.95rem;
+    line-height:1.8;
+
+    color:var(--brown-mid);
+}
+
+/* MEMBERSHIP CARD */
+.success-membership-card{
+    background:#fff;
+
+    border:1px solid #f4dbe5;
+
+    border-radius:26px;
+
+    padding:28px;
+
+    margin-bottom:28px;
+}
+
+.membership-card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.membership-label{
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+
+    color:#a78b95;
+
+    margin-bottom:10px;
+}
+
+.membership-plan{
+    font-family:var(--font-display);
+    font-size:2rem;
+    color:var(--brown);
+}
+
+.membership-price{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    font-weight:700;
+
+    color:#ec4899;
+}
+
+.membership-divider{
+    height:1px;
+    background:#f5e3ea;
+
+    margin:22px 0;
+}
+
+/* GRID */
+.success-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.success-item{
+    background:#fffafb;
+
+    border:1px solid #f8e5ec;
+
+    border-radius:18px;
+
+    padding:16px 18px;
+}
+
+.success-item-label{
+    display:block;
+
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+
+    color:#b0899d;
+
+    margin-bottom:8px;
+}
+
+.success-item strong{
+    font-size:1rem;
+    color:var(--brown);
+}
+
+.active-status{
+    color:#14b8a6 !important;
+}
+
+/* NEXT */
+.success-next{
+    background:
+      linear-gradient(
+        135deg,
+        #fff7fa,
+        #fdfdfd
+      );
+
+    border-radius:24px;
+
+    padding:26px;
+
+    border:1px solid #f5dce7;
+
+    margin-bottom:30px;
+}
+
+.success-next-title{
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    color:var(--brown);
+
+    margin-bottom:18px;
+}
+
+.success-next-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.next-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    padding:14px 16px;
+
+    border:1px solid #f7e8ee;
+}
+
+.next-item span{
+    font-size:1.2rem;
+}
+
+.next-item p{
+    font-size:.88rem;
+    color:var(--brown-mid);
+}
+
+/* BUTTONS */
 .success-actions{
     display:flex;
     justify-content:center;
@@ -622,58 +752,109 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 }
 
 .btn-home{
-    padding: 14px 32px;
-    border-radius: 999px;
-    text-decoration:none;
+    padding:15px 34px;
+
+    border-radius:999px;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--pink),
-            #c43d71
-        );
+      linear-gradient(
+        135deg,
+        #ec4899,
+        #db2777
+      );
 
     color:#fff;
+
+    text-decoration:none;
+
     font-weight:800;
 
     box-shadow:
-        0 12px 28px rgba(166,53,88,.22);
+      0 10px 26px rgba(236,72,153,.24);
 
-    transition:.25s;
+    transition:.25s ease;
 }
 
 .btn-home:hover{
-    transform: translateY(-2px);
+    transform:translateY(-2px);
 }
 
 .btn-secondary{
-    padding: 14px 28px;
-    border-radius: 999px;
+    padding:15px 30px;
 
-    border: 1.5px solid #f3d9e6;
+    border-radius:999px;
+
+    border:1.5px solid #f2d5e1;
+
     background:#fff;
 
+    color:var(--brown);
+
     font-weight:700;
-    color: var(--brown);
 
     cursor:pointer;
-    transition:.25s;
+
+    transition:.25s ease;
 }
 
 .btn-secondary:hover{
-    border-color: var(--pink);
-    color: var(--pink);
-    transform: translateY(-2px);
+    border-color:#ec4899;
+    color:#ec4899;
+}
+
+/* ANIMATION */
+@keyframes pulse{
+    0%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+    70%{
+        transform:scale(1.08);
+        opacity:0;
+    }
+    100%{
+        opacity:0;
+    }
 }
 
 @keyframes fadeUp{
     from{
         opacity:0;
-        transform: translateY(20px);
+        transform:translateY(20px);
     }
     to{
         opacity:1;
-        transform: translateY(0);
+        transform:none;
+    }
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .success-card{
+        padding:26px 20px;
+    }
+
+    .success-title{
+        font-size:2rem;
+    }
+
+    .membership-card-top{
+        flex-direction:column;
+    }
+
+    .success-grid{
+        grid-template-columns:1fr;
+    }
+
+    .success-actions{
+        flex-direction:column;
+    }
+
+    .btn-home,
+    .btn-secondary{
+        width:100%;
+        text-align:center;
     }
 }
 
@@ -1086,87 +1267,157 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </div>
 
     <!-- ── SUCCESS ── -->
-    <div class="success-screen active" id="success">
+<div class="success-screen" id="success">
 
-  <div class="success-confetti">
-    ✨ 🐾 ✨
-  </div>
+  <div class="success-card">
 
-  <div class="success-icon-wrap">
-    <div class="success-icon">
-      ✓
-    </div>
-  </div>
-
-  <div class="success-badge">
-    Membership Activated
-  </div>
-
-  <h2 class="success-title">
-    Welcome to <em>Petcare Spa</em>
-  </h2>
-
-  <p class="success-desc">
-    Your membership has been successfully activated.
-    We’ve sent your welcome details and membership information to your email.
-  </p>
-
-  <div class="success-details">
-
-    <div class="success-detail-row">
-      <div class="success-detail-left">
-        <span>📋</span>
-        <p>Selected Plan</p>
+    <!-- TOP -->
+    <div class="success-top">
+      <div class="success-badge">
+        <span>🎉</span>
+        Membership Confirmed
       </div>
 
-      <strong id="success-plan">
-        Premium
-      </strong>
-    </div>
-
-    <div class="success-detail-row">
-      <div class="success-detail-left">
-        <span>👤</span>
-        <p>Member</p>
+      <div class="success-icon-wrap">
+        <div class="success-icon-ring"></div>
+        <div class="success-icon">🐾</div>
       </div>
 
-      <strong id="success-name">
-        hai phuong
-      </strong>
+      <h2 class="success-title">
+        Welcome to <em>Petcare Spa</em>
+      </h2>
+
+      <p class="success-desc">
+        Your membership has been successfully activated.
+        We've sent your confirmation and onboarding details to your email.
+      </p>
     </div>
 
-    <div class="success-detail-row">
-      <div class="success-detail-left">
-        <span>🐶</span>
-        <p>Pet</p>
+    <!-- MEMBERSHIP CARD -->
+    <div class="success-membership-card">
+
+      <div class="membership-card-top">
+        <div>
+          <div class="membership-label">
+            Active Membership
+          </div>
+
+          <div class="membership-plan" id="success-plan">
+            Plus Plan
+          </div>
+        </div>
+
+        <div class="membership-price" id="success-price">
+          540.000₫
+        </div>
       </div>
 
-      <strong id="success-pet">
-        Benny (SS)
-      </strong>
+      <div class="membership-divider"></div>
+
+      <div class="success-grid">
+
+        <div class="success-item">
+          <span class="success-item-label">
+            Member Name
+          </span>
+
+          <strong id="success-name">
+            —
+          </strong>
+        </div>
+
+        <div class="success-item">
+          <span class="success-item-label">
+            Billing Cycle
+          </span>
+
+          <strong id="success-billing">
+            Monthly
+          </strong>
+        </div>
+
+        <div class="success-item">
+          <span class="success-item-label">
+            Pet Name
+          </span>
+
+          <strong id="success-pet">
+            —
+          </strong>
+        </div>
+
+        <div class="success-item">
+          <span class="success-item-label">
+            Pet Type
+          </span>
+
+          <strong id="success-pet-type">
+            Dog
+          </strong>
+        </div>
+
+        <div class="success-item">
+          <span class="success-item-label">
+            Trial Period
+          </span>
+
+          <strong>
+            14 Days Free
+          </strong>
+        </div>
+
+        <div class="success-item">
+          <span class="success-item-label">
+            Membership Status
+          </span>
+
+          <strong class="active-status">
+            Active
+          </strong>
+        </div>
+
+      </div>
     </div>
 
-    <div class="success-detail-row">
-      <div class="success-detail-left">
-        <span>🎁</span>
-        <p>Free Trial</p>
+    <!-- NEXT STEPS -->
+    <div class="success-next">
+
+      <div class="success-next-title">
+        ✨ What happens next?
       </div>
 
-      <strong>
-        14 Days
-      </strong>
+      <div class="success-next-list">
+
+        <div class="next-item">
+          <span>📩</span>
+          <p>Confirmation email sent successfully</p>
+        </div>
+
+        <div class="next-item">
+          <span>📅</span>
+          <p>You can now book your first appointment</p>
+        </div>
+
+        <div class="next-item">
+          <span>🎁</span>
+          <p>Your membership perks are now active</p>
+        </div>
+
+      </div>
+
     </div>
 
-  </div>
+    <!-- ACTION -->
+    <div class="success-actions">
+      <a href="/index.html" class="btn-home">
+        Go to Dashboard
+      </a>
 
-  <div class="success-actions">
-    <a href="/index.html" class="btn-home">
-      Go to Dashboard
-    </a>
+      <button class="btn-secondary">
+        Download Receipt
+      </button>
+    </div>
 
-    <button class="btn-secondary">
-      Book First Visit
-    </button>
   </div>
 
 </div>
@@ -1261,26 +1512,54 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     }
 
     function submitForm() {
-      if (!document.getElementById('terms').checked) {
-        alert('Please agree to the Terms of Service to continue.');
-        return;
-      }
-      const fn = document.getElementById('first-name').value || '—';
-      const ln = document.getElementById('last-name').value  || '';
-      const pn = document.getElementById('pet-name').value   || '—';
-      const pb = document.getElementById('pet-breed').value  || '';
-      document.getElementById('success-plan').textContent = PLAN_LABELS[state.plan];
-      document.getElementById('success-name').textContent = `${fn} ${ln}`.trim();
-      document.getElementById('success-pet').textContent  = pb ? `${pn} (${pb})` : pn;
-      document.getElementById('step-4').classList.remove('active');
-      document.getElementById('success').classList.add('active');
-      for (let i = 1; i <= 4; i++) {
-        const el = document.getElementById(`prog-${i}`);
-        el.classList.remove('active');
-        el.classList.add('done');
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+
+  if (!document.getElementById('terms').checked) {
+    alert('Please agree to the Terms of Service to continue.');
+    return;
+  }
+
+  const fn = document.getElementById('first-name').value || '—';
+  const ln = document.getElementById('last-name').value || '';
+  const pn = document.getElementById('pet-name').value || '—';
+  const pb = document.getElementById('pet-breed').value || '';
+
+  document.getElementById('success-plan').textContent =
+    PLAN_LABELS[state.plan] + ' Plan';
+
+  document.getElementById('success-price').textContent =
+    PRICES[state.plan][state.billing];
+
+  document.getElementById('success-billing').textContent =
+    state.billing === 'monthly'
+      ? 'Monthly'
+      : 'Yearly';
+
+  document.getElementById('success-name').textContent =
+    `${fn} ${ln}`.trim();
+
+  document.getElementById('success-pet').textContent =
+    pb ? `${pn} (${pb})` : pn;
+
+  document.getElementById('success-pet-type').textContent =
+    state.petType === 'dog'
+      ? 'Dog'
+      : 'Cat';
+
+  document.getElementById('step-4').classList.remove('active');
+
+  document.getElementById('success').classList.add('active');
+
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById(`prog-${i}`);
+    el.classList.remove('active');
+    el.classList.add('done');
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
 
     function formatCard(el) {
       let v = el.value.replace(/\D/g, '').substring(0, 16);
