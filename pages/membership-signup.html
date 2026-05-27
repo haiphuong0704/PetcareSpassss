@@ -373,14 +373,38 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     .order-total span:first-child { font-weight: 900; font-size: .9rem; color: var(--brown); }
     .order-total span:last-child  { font-family: var(--font-display); font-size: 1.6rem; color: var(--pink); font-weight: 700; }
     .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-    .pay-method { border: 2px solid #f0dde6; border-radius: 14px; padding: 14px 10px; cursor: pointer; text-align: center; background: #fff; transition: all .2s; font-family: var(--font-body); }
-    .pay-method:hover { border-color: var(--pink-mid); }
+    .pay-method {
+        border: 2px solid rgba(45,212,191,.10);
+        border-radius: 14px;
+        padding: 14px 10px;
+        cursor: pointer;
+        text-align: center;
+        background: #fff;
+        transition: all .2s;
+        font-family: var(--font-body);
+    }
+    .pay-method:hover { border-color:linear-gradient(160deg, #fffafb 0%, #fff1f5 60%, #f0fdfb 100%); }
     .pay-method.selected { border-color: var(--teal); background: linear-gradient(135deg, #f0fdfb, #e0faf7); }
     .pay-method__icon { font-size: 1.6rem; display: block; margin-bottom: 4px; }
     .pay-method__label { font-size: .75rem; font-weight: 700; color: var(--brown-mid); }
     .pay-method.selected .pay-method__label { color: var(--teal-dark); }
 
     /* checkbox */
+    .terms-check{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:12px;
+
+        font-size:.82rem;
+        color:var(--brown-mid);
+        line-height:1.5;
+
+        margin:0 auto 28px;
+        max-width:720px;
+
+        text-align:center;
+    }
 .terms-check input[type="checkbox"]{
     appearance:none;
     -webkit-appearance:none;
