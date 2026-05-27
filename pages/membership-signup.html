@@ -212,118 +212,297 @@
     }
 
     /* ── STEP 1: PLAN CARDS ──────────────────────── */
-    .mp-cross {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: #e5e0dd;
-    flex-shrink: 0;
-    margin-top: 1px;
-    display: flex; align-items: center; justify-content: center;
+      /* ─── Membership Plans Section ─────────────────────────────────── */
+  .mp-section {
+    background: linear-gradient(135deg, #fffafb, #fff1f5);
+    padding: 70px 40px;
+    font-family: 'Lato', sans-serif;
   }
-  .mp-cross svg { width: 10px; height: 10px; fill: none; stroke: #9b7060; stroke-width: 2; stroke-linecap: round; }
-  .mp-features li span.mp-cross ~ span { color: #b09080; }
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 32px;
+ 
+  .mp-eyebrow {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #a63558;
+    margin-bottom: 14px;
+  }
+ 
+  .mp-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 400;
+    color: #c0593b;
+    text-align: center;
+    line-height: 1.1;
+    margin: 0 0 14px;
+    letter-spacing: -1px;
+  }
+ 
+  .mp-sub {
+    text-align: center;
+    font-size: 15px;
+    color: #7a5c50;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 16px;
+  }
+ 
+  /* ── BILLING TOGGLE ── */
+  .mp-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+ 
+  .mp-toggle button {
+    padding: 10px 28px;
+    border: 1.5px solid #0e9f8e;
+    background: transparent;
+    font-family: 'Lato', sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    color: #3b1a0e;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+ 
+  .mp-toggle button:first-child { border-radius: 30px 0 0 30px; }
+  .mp-toggle button:last-child  { border-radius: 0 30px 30px 0; border-left: none; }
+ 
+  .mp-toggle button.active {
+    background: #2dd4bf;
+    color: white;
+    border-color: #0e9f8e;
+  }
+ 
+  .mp-save-badge {
+    display: inline-block;
+    background: #fde68a;
+    color: #78350f;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+ 
+  /* ── PLAN CARDS GRID ── */
+  .mp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 32px;
+    align-items: start;
+  }
+ 
+  /* ── CARD BASE ── */
+  .mp-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px 26px 28px;
+    border: 1.5px solid #fce4ee;
+    box-shadow: 0 8px 28px rgba(166,53,88,.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    position: relative;
+  }
+ 
+  .mp-card:hover {
+    transform: translateY(-6px);
+    border-color: #f9b8d0;
+    box-shadow: 0 20px 46px rgba(166,53,88,.12);
+  }
+ 
+  /* ── FEATURED CARD ── */
+  .mp-card.featured {
+    background: linear-gradient(160deg, #fff8fb 0%, #fce4ee 100%);
+    border: 2px solid #f9b8d0;
+    box-shadow: 0 16px 48px rgba(166,53,88,.14);
+    transform: translateY(-10px) scale(1.02);
+  }
+ 
+  .mp-card.featured:hover {
+    transform: translateY(-16px) scale(1.02);
+    box-shadow: 0 28px 64px rgba(166,53,88,.2);
+  }
+ 
+  /* ── BADGE ── */
+  .mp-popular-badge {
+    position: absolute;
+    top: -13px;
+    left: 22px;
+    background: #2dd4bf;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+  }
+ 
+  /* ── PLAN ICON ── */
+  .mp-plan-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+ 
+  /* ── PLAN NAME & TAG ── */
+  .mp-plan-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #3b1a0e;
+    margin: 0 0 5px;
+  }
+ 
+  .mp-plan-tagline {
+    font-size: 12.5px;
+    color: #9b7060;
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+ 
+  /* ── PRICING ── */
+  .mp-price-orig {
+    font-size: 12.5px;
+    color: #c9a0b0;
+    text-decoration: line-through;
+    min-height: 18px;
+    display: block;
+    margin-bottom: 2px;
+  }
+ 
+  .mp-price-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+ 
+  .mp-price-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #a63558;
+  }
+ 
+  .mp-price-unit {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #a63558;
+    font-weight: 700;
+  }
+ 
+  .mp-price-period {
+    font-size: 11.5px;
+    color: #b09080;
+    margin-bottom: 20px;
+  }
+ 
+  /* ── DIVIDER ── */
+  .mp-divider {
+    height: 1px;
+    background: rgba(166,53,88,.1);
+    margin-bottom: 18px;
+  }
+ 
+  /* ── FEATURE LIST ── */
+  .mp-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+ 
+  .mp-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13.5px;
+    color: #5a3525;
+    line-height: 1.45;
+  }
+ 
+  .mp-features li.mp-dim {
+    color: #b09080;
+  }
+ 
+  /* Checkmark icon */
+  .mp-chk {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #2dd4bf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+ 
+  .mp-chk svg {
+    width: 9px;
+    height: 9px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+ 
+  /* Cross icon */
+  .mp-crs {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #eee4e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+ 
+  .mp-crs svg {
+    width: 9px;
+    height: 9px;
+    fill: none;
+    stroke: #b09080;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+ 
+  /* ── NOTE ── */
+  .mp-note {
+    text-align: center;
+    font-size: 13px;
+    color: #9b7060;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .mp-section { padding: 48px 20px; }
+    .mp-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin-inline: auto;
     }
-
-    .plan-option {
-      border: 2px solid #f0dde6;
-      border-radius: 22px;
-      padding: 24px 20px;
-      cursor: pointer;
-      transition: all .25s ease;
-      position: relative;
-      background: #fff;
-      text-align: center;
-    }
-
-    .plan-option:hover {
-      border-color: var(--pink-mid);
-      box-shadow: 0 8px 24px rgba(166,53,88,.08);
-      transform: translateY(-3px);
-    }
-
-    .plan-option.selected {
-      border-color: var(--pink);
-      background: linear-gradient(135deg, #fff0f5, #fce4ee);
-      box-shadow: 0 8px 28px rgba(166,53,88,.14);
-      transform: translateY(-3px);
-    }
-
-    .plan-option.selected::after {
-      content: '✓';
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      width: 24px;
-      height: 24px;
-      background: var(--teal);
-      color: #fff;
-      border-radius: 50%;
-      font-size: .7rem;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 24px;
-    }
-
-    .plan-option__badge {
-      display: inline-block;
-      background: var(--teal);
-      color: #fff;
-      font-size: .65rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 3px 12px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-
-    .plan-option__icon { font-size: 1.8rem; margin-bottom: 10px; }
-
-    .plan-option__name {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      color: var(--brown);
-      margin-bottom: 6px;
-    }
-
-    .plan-option__price {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--pink);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .plan-option__period {
-      font-size: .72rem;
-      color: var(--brown-light);
-      margin-bottom: 14px;
-    }
-
-    .plan-option__features {
-      list-style: none;
-      text-align: left;
-      font-size: .78rem;
-      color: var(--brown-mid);
-      line-height: 1.5;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .plan-option__features li::before {
-      content: '🐾 ';
-      font-size: .65rem;
-    }
-
+    .mp-card.featured { transform: none; }
+    .mp-card.featured:hover { transform: translateY(-6px); }
+  }
     /* Billing toggle */
     .billing-toggle {
       display: flex;
@@ -788,9 +967,11 @@
     <a href="/index.html" class="signup-logo">
       <span>Petcare</span><span>Spa</span>
     </a>
-    <a href="#" onclick="showPage('membership'); return false;"  class="signup-back">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Back to Plans
+    <a href="#" onclick="history.back(); return false;" class="signup-back">
+        <svg viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Back to Plans
     </a>
   </header>
 
@@ -832,78 +1013,99 @@
         <button onclick="setBilling('yearly', this)">Yearly <span class="save-tag">Save 20%</span></button>
       </div>
 
-      <div class="plan-grid">
-        <div class="plan-option" onclick="selectPlan('basic', this)" data-plan="basic">
-          <div class="plan-option__icon">🐾</div>
-          <div class="plan-option__name">Basic</div>
-          <p class="mp-plan-tagline">Essential care for a healthy, happy pet</p>
-          <div class="plan-option__price">
-            <span class="price-val" data-m="250.000₫" data-y="200.000₫">250.000₫</span>
-          </div>
-          <div class="plan-option__period">per month</div>
-          <ul class="plan-option__features">
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                2 wellness check-ups / year
-            </li>
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                10% off grooming sessions
-            </li>
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                Monthly health newsletter
-            </li>
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                Birthday treat for your pet
-            </li>
-            <li>
-                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
-                <span>24/7 vet chat support</span>
-            </li>
-            <li>
-                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
-                <span>Priority booking</span>
-            </li>
-            <li>
-                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
-                <span>PawFeast double points</span>
-            </li>
-          </ul>
+        <!-- ════════════════════════════════════
+            HTML – Membership Plans Section
+        ════════════════════════════════════ -->
+        <section class="mp-section" id="plans">
+        
+        <div class="mp-eyebrow">Membership Plans</div>
+        <h2 class="mp-h2">choose the perfect plan<br>for your pet</h2>
+        <p class="mp-sub">Every plan includes access to our caring team and exclusive member benefits. Upgrade anytime.</p>
+        
+        <!-- Billing toggle -->
+        <div class="mp-toggle">
+            <button class="active" onclick="mpSetBilling('m', this)">Monthly</button>
+            <button onclick="mpSetBilling('y', this)">Yearly <span class="mp-save-badge">Save 20%</span></button>
         </div>
-
-        <div class="plan-option selected" onclick="selectPlan('plus', this)" data-plan="plus">
-          <div class="plan-option__badge">Most Popular</div>
-          <div class="plan-option__icon">⭐</div>
-          <div class="plan-option__name">Plus</div>
-          <div class="plan-option__price">
-            <span class="price-val" data-m="540.000₫" data-y="432.000₫">540.000₫</span>
-          </div>
-          <div class="plan-option__period">per month</div>
-          <ul class="plan-option__features">
-            <li>Unlimited wellness visits</li>
-            <li>25% off grooming</li>
-            <li>24/7 vet chat</li>
-            <li>Priority booking</li>
-          </ul>
-        </div>
-
-        <div class="plan-option" onclick="selectPlan('premium', this)" data-plan="premium">
-          <div class="plan-option__icon">👑</div>
-          <div class="plan-option__name">Premium</div>
-          <div class="plan-option__price">
-            <span class="price-val" data-m="1.000.000₫" data-y="800.000₫">1.000.000₫</span>
-          </div>
-          <div class="plan-option__period">per month</div>
-          <ul class="plan-option__features">
-            <li>Everything in Plus</li>
-            <li>Dedicated concierge</li>
-            <li>Full grooming / month</li>
-            <li>VIP lounge access</li>
-          </ul>
-        </div>
-      </div>
+        
+        <!-- Cards -->
+        <div class="mp-grid">
+        
+            <!-- BASIC -->
+            <div class="mp-card">
+            <div class="mp-plan-icon">🐾</div>
+            <div class="mp-plan-name">Basic</div>
+            <p class="mp-plan-tagline">Essential care for a healthy, happy pet</p>
+            <span class="mp-price-orig" id="orig-basic"></span>
+            <div class="mp-price-amount">
+                <span class="mp-price-val" id="val-basic" data-m="250.000" data-y="200.000">250.000</span>
+                <span class="mp-price-unit">₫</span>
+            </div>
+            <div class="mp-price-period">per month</div>
+            <div class="mp-divider"></div>
+            <ul class="mp-features">
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>2 wellness check-ups / year</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>10% off grooming sessions</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Monthly health newsletter</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Birthday treat for your pet</li>
+                <li class="mp-dim"><span class="mp-crs"><svg viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>24/7 vet chat support</li>
+                <li class="mp-dim"><span class="mp-crs"><svg viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Priority booking</li>
+                <li class="mp-dim"><span class="mp-crs"><svg viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>PawFeast double points</li>
+            </ul>
+            </div>
+        
+            <!-- PLUS (featured) -->
+            <div class="mp-card featured">
+            <div class="mp-popular-badge">Most Popular</div>
+            <div class="mp-plan-icon">⭐</div>
+            <div class="mp-plan-name">Plus</div>
+            <p class="mp-plan-tagline">Complete care with real savings all year</p>
+            <span class="mp-price-orig" id="orig-plus" data-m="600.000₫" data-y="540.000₫">600.000₫</span>
+            <div class="mp-price-amount">
+                <span class="mp-price-val" id="val-plus" data-m="540.000" data-y="432.000">540.000</span>
+                <span class="mp-price-unit">₫</span>
+            </div>
+            <div class="mp-price-period">per month</div>
+            <div class="mp-divider"></div>
+            <ul class="mp-features">
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Unlimited wellness visits</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>25% off all grooming services</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>24/7 vet chat support</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Priority booking</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>PawFeast double points</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>1 free nail trim / month</li>
+                <li class="mp-dim"><span class="mp-crs"><svg viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8"/><line x1="8" y1="2" x2="2" y2="8"/></svg></span>Dedicated care concierge</li>
+            </ul>
+            </div>
+        
+            <!-- PREMIUM -->
+            <div class="mp-card">
+            <div class="mp-plan-icon">👑</div>
+            <div class="mp-plan-name">Premium</div>
+            <p class="mp-plan-tagline">White-glove care for the most pampered pets</p>
+            <span class="mp-price-orig" id="orig-premium"></span>
+            <div class="mp-price-amount">
+                <span class="mp-price-val" id="val-premium" data-m="1.000.000" data-y="890.000">1.000.000</span>
+                <span class="mp-price-unit">₫</span>
+            </div>
+            <div class="mp-price-period">per month</div>
+            <div class="mp-divider"></div>
+            <ul class="mp-features">
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Everything in Plus</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Dedicated care concierge</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Full grooming session / month</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Quarterly surprise gift box</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Nutrition consultation</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Early access to new services</li>
+                <li><span class="mp-chk"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>VIP lounge access</li>
+            </ul>
+            </div>
+        
+        </div><!-- /mp-grid -->
+        
+        <p class="mp-note">All plans billed monthly · Annual billing available at 20% off · Cancel anytime with no fees</p>
+        
+        </section>
 
       <div class="btn-row" style="justify-content:flex-end">
         <button class="btn-next" onclick="goTo(2)">
