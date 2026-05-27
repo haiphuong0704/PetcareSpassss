@@ -212,153 +212,117 @@
     }
 
     /* ── STEP 1: PLAN CARDS ──────────────────────── */
+    .mp-cross {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #e5e0dd;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mp-cross svg { width: 10px; height: 10px; fill: none; stroke: #9b7060; stroke-width: 2; stroke-linecap: round; }
+  .mp-features li span.mp-cross ~ span { color: #b09080; }
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
     .plan-option {
-  position: relative;
-  overflow: hidden;
-  border-radius: 28px;
-  padding: 28px 24px;
-  border: 1px solid rgba(236,72,153,.12);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.96),
-      rgba(255,250,252,.96)
-    );
+      border: 2px solid #f0dde6;
+      border-radius: 22px;
+      padding: 24px 20px;
+      cursor: pointer;
+      transition: all .25s ease;
+      position: relative;
+      background: #fff;
+      text-align: center;
+    }
 
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
-}
+    .plan-option:hover {
+      border-color: var(--pink-mid);
+      box-shadow: 0 8px 24px rgba(166,53,88,.08);
+      transform: translateY(-3px);
+    }
 
-.plan-option:hover {
-  transform: translateY(-6px);
-  border-color: rgba(236,72,153,.35);
+    .plan-option.selected {
+      border-color: var(--pink);
+      background: linear-gradient(135deg, #fff0f5, #fce4ee);
+      box-shadow: 0 8px 28px rgba(166,53,88,.14);
+      transform: translateY(-3px);
+    }
 
-  box-shadow:
-    0 22px 50px rgba(236,72,153,.10),
-    0 10px 25px rgba(0,0,0,.04);
-}
+    .plan-option.selected::after {
+      content: '✓';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 24px;
+      height: 24px;
+      background: var(--teal);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .7rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 24px;
+    }
 
-.plan-option.selected {
-  border-color: #ec4899;
+    .plan-option__badge {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
 
-  box-shadow:
-    0 0 0 4px rgba(236,72,153,.10),
-    0 25px 60px rgba(236,72,153,.16);
-}
+    .plan-option__icon { font-size: 1.8rem; margin-bottom: 10px; }
 
-.plan-option__top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
+    .plan-option__name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--brown);
+      margin-bottom: 6px;
+    }
 
-.plan-option__icon {
-  width: 62px;
-  height: 62px;
-  border-radius: 20px;
+    .plan-option__price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--pink);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    .plan-option__period {
+      font-size: .72rem;
+      color: var(--brown-light);
+      margin-bottom: 14px;
+    }
 
-  font-size: 28px;
+    .plan-option__features {
+      list-style: none;
+      text-align: left;
+      font-size: .78rem;
+      color: var(--brown-mid);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(236,72,153,.12),
-      rgba(45,212,191,.12)
-    );
-}
-
-.plan-option__name {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  color: #2a1820;
-}
-
-.plan-option__tagline {
-  margin-top: 4px;
-  font-size: .82rem;
-  line-height: 1.6;
-  color: #8b6b77;
-}
-
-.plan-option__price-wrap {
-  margin-bottom: 22px;
-}
-
-.plan-option__oldprice {
-  margin-bottom: 4px;
-}
-
-.price-old {
-  font-size: .9rem;
-  color: #b48b97;
-  text-decoration: line-through;
-}
-
-.plan-option__price {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #ec4899;
-  line-height: 1;
-}
-
-.plan-option__period {
-  margin-top: 6px;
-  font-size: .78rem;
-  color: #9b7080;
-}
-
-.plan-option__divider {
-  height: 1px;
-  background: rgba(236,72,153,.12);
-  margin-bottom: 22px;
-}
-
-.plan-option__features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.plan-option__features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-
-  font-size: .84rem;
-  line-height: 1.5;
-  color: #6b4d58;
-}
-
-.plan-option__badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  background: linear-gradient(
-    135deg,
-    #2dd4bf,
-    #14b8a6
-  );
-
-  color: white;
-
-  font-size: .65rem;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-
-  padding: 6px 12px;
-  border-radius: 999px;
-}
+    .plan-option__features li::before {
+      content: '🐾 ';
+      font-size: .65rem;
+    }
 
     /* Billing toggle */
     .billing-toggle {
