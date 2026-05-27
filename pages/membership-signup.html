@@ -290,21 +290,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 .pet-type-btn{
     border:none;
     background:transparent;
-
     min-width:120px;
     height:56px;
-
     border-radius:18px;
-
-    display:flex;
     align-items:center;
     justify-content:center;
     flex-direction:row;
-
     gap:10px;
-
     cursor:pointer;
-
     transition:
       background .25s ease,
       transform .2s ease,
@@ -349,20 +342,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 /* ACTIVE COLORS */
 .pet-type-btn.selected .pet-type-btn__label,
 .pet-type-btn.selected .pet-type-btn__icon i{
-    color:#fff;
+    color:#3b1a0e;
 }
 
 /* HOVER */
 .pet-type-btn:hover{
     transform:translateY(-1px);
 }
-    .pet-type-btn { border: 1.5px solid #f3d9e6; background: rgba(255,255,255,.92); border-radius: 22px; padding: 20px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; cursor: pointer; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+    .pet-type-btn { border: 1.5px solid #f3d9e6; background: rgba(255,255,255,.92); border-radius: 22px; flex-direction: column; align-items: center; justify-content: center; gap: 12px; cursor: pointer; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease; }
     .pet-type-btn:hover { transform: translateY(-4px); border-color: #2dd4bf; background: #f8fffe; box-shadow: 0 14px 30px rgba(45,212,191,.10), 0 8px 18px rgba(236,72,153,.08); }
     .pet-type-btn.selected { border-color: #ec4899; background: linear-gradient(145deg, #fff 0%, #fdf2f8 100%); box-shadow: 0 0 0 4px rgba(236,72,153,.10), 0 18px 34px rgba(236,72,153,.12); }
-    .pet-type-btn__icon { width: 58px; height: 58px; border-radius: 18px; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, rgba(236,72,153,.10), rgba(45,212,191,.10)); }
-    .pet-type-btn__icon i { font-size: 28px; color: #ec4899; line-height: 1; }
-    .pet-type-btn:hover .pet-type-btn__icon i { color: #2dd4bf; }
-    .pet-type-btn.selected .pet-type-btn__icon { background: linear-gradient(145deg, rgba(236,72,153,.16), rgba(45,212,191,.14)); }
+    .pet-type-btn__icon i { font-size: 28px; color: #3b1a0e; line-height: 1; }
+    .pet-type-btn:hover .pet-type-btn__icon i { color: #ec4899; }
     .pet-type-btn__label { font-size: .95rem; font-weight: 700; color: #1f1720; }
 
     /* ── STEP 4: PAYMENT ── */
