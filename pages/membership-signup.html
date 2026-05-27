@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join Petcare Spa — Membership Signup</title>
+  <link rel="icon" href="/public/assets/favicon.png?v=3">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -193,7 +194,7 @@
     .step-title {
       font-family: var(--font-display);
       font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      font-weight: 700;
+      font-weight: 500;
       color: var(--brown);
       line-height: 1.2;
       margin-bottom: 10px;
@@ -426,33 +427,93 @@
     textarea { resize: none; height: 80px; }
 
     /* Pet type selector */
-    .pet-type-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 0;
+    .pet-type-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 16px;
     }
 
-    .pet-type-btn {
-      border: 2px solid #f0dde6;
-      border-radius: 16px;
-      padding: 16px;
-      cursor: pointer;
-      text-align: center;
-      background: #fff;
-      transition: all .2s;
-      font-family: var(--font-body);
+    .pet-type-btn{
+        border: 1.5px solid #f3d9e6;
+        background: rgba(255,255,255,.92);
+        border-radius: 22px;
+        padding: 20px 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        cursor: pointer;
+        transition:
+            transform .2s ease,
+            border-color .2s ease,
+            box-shadow .2s ease,
+            background .2s ease;
     }
 
-    .pet-type-btn:hover { border-color: var(--pink-mid); }
-
-    .pet-type-btn.selected {
-      border-color: var(--teal);
-      background: linear-gradient(135deg, #f0fdfb, #e0faf7);
+    .pet-type-btn:hover{
+        transform: translateY(-4px);
+        border-color: #2dd4bf;
+        background: #f8fffe;
+        box-shadow:
+            0 14px 30px rgba(45,212,191,.10),
+            0 8px 18px rgba(236,72,153,.08);
     }
 
-    .pet-type-btn__icon { font-size: 2rem; display: block; margin-bottom: 6px; }
-    .pet-type-btn__label { font-size: .85rem; font-weight: 700; color: var(--brown); }
+    .pet-type-btn.selected{
+        border-color: #ec4899;
+        background: linear-gradient(
+            145deg,
+            #fff 0%,
+            #fdf2f8 100%
+        );
+
+        box-shadow:
+            0 0 0 4px rgba(236,72,153,.10),
+            0 18px 34px rgba(236,72,153,.12);
+    }
+
+    .pet-type-btn__icon{
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background:
+            linear-gradient(
+            145deg,
+            rgba(236,72,153,.10),
+            rgba(45,212,191,.10)
+            );
+    }
+
+    .pet-type-btn__icon i{
+        font-size: 28px;
+        color: #ec4899;
+        line-height: 1;
+    }
+
+    .pet-type-btn:hover .pet-type-btn__icon i{
+        color: #2dd4bf;
+    }
+
+    .pet-type-btn.selected .pet-type-btn__icon{
+        background:
+            linear-gradient(
+            145deg,
+            rgba(236,72,153,.16),
+            rgba(45,212,191,.14)
+            );
+    }
+
+    .pet-type-btn__label{
+        font-size: .95rem;
+        font-weight: 700;
+        color: #1f1720;
+    }
 
     /* ── STEP 4: PAYMENT ─────────────────────────── */
     .order-summary {
@@ -717,7 +778,7 @@
     <a href="/index.html" class="signup-logo">
       <span>Petcare</span><span>Spa</span>
     </a>
-    <a href="/pages/membership.html" class="signup-back">
+    <a href="#" onclick="showPage('membership'); return false;"  class="signup-back">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Plans
     </a>
@@ -765,14 +826,40 @@
         <div class="plan-option" onclick="selectPlan('basic', this)" data-plan="basic">
           <div class="plan-option__icon">🐾</div>
           <div class="plan-option__name">Basic</div>
+          <p class="mp-plan-tagline">Essential care for a healthy, happy pet</p>
           <div class="plan-option__price">
             <span class="price-val" data-m="250.000₫" data-y="200.000₫">250.000₫</span>
           </div>
           <div class="plan-option__period">per month</div>
           <ul class="plan-option__features">
-            <li>2 wellness check-ups / year</li>
-            <li>10% off grooming</li>
-            <li>Birthday treat</li>
+            <li>
+                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                2 wellness check-ups / year
+            </li>
+            <li>
+                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                10% off grooming sessions
+            </li>
+            <li>
+                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                Monthly health newsletter
+            </li>
+            <li>
+                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                Birthday treat for your pet
+            </li>
+            <li>
+                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+                <span>24/7 vet chat support</span>
+            </li>
+            <li>
+                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+                <span>Priority booking</span>
+            </li>
+            <li>
+                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+                <span>PawFeast double points</span>
+            </li>
           </ul>
         </div>
 
@@ -882,11 +969,15 @@
         <div class="form-section-title"><span>🐾</span> Pet Type</div>
         <div class="pet-type-grid" style="margin-bottom: 28px;">
           <button type="button" class="pet-type-btn selected" onclick="selectPetType('dog', this)">
-            <span class="pet-type-btn__icon">🐶</span>
+            <span class="pet-type-btn__icon">
+                <i class="fa-kit fa-petfolk-icon-dog-1"></i>
+            </span>
             <span class="pet-type-btn__label">Dog</span>
           </button>
           <button type="button" class="pet-type-btn" onclick="selectPetType('cat', this)">
-            <span class="pet-type-btn__icon">🐱</span>
+            <span class="pet-type-btn__icon">
+                <i class="fa-kit fa-petfolk-icon-cat-1"></i>
+            </span>
             <span class="pet-type-btn__label">Cat</span>
           </button>
         </div>
