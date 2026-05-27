@@ -212,6 +212,16 @@
     }
 
     /* ── STEP 1: PLAN CARDS ──────────────────────── */
+    .mp-cross {
+        width: 18px; height: 18px;
+        border-radius: 50%;
+        background: #e5e0dd;
+        flex-shrink: 0;
+        margin-top: 1px;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .mp-cross svg { width: 10px; height: 10px; fill: none; stroke: #9b7060; stroke-width: 2; stroke-linecap: round; }
+    .mp-features li span.mp-cross ~ span { color: #b09080; }
     .plan-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
