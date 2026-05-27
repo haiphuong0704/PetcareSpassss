@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Royal Canin Adult Dog Food — PetCare Spa Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --pink:#d4317e; --pink-deep:#a8185a; --pink-dark:#7c2341;
+      --pink-pale:#fdf2f8; --pink-border:#e3cdd5;
+      --teal:#2dd4bf; --teal-dark:#0e9f8e;
+      --gold:#f59e0b; --white:#fff;
+      --dark:#1a0e12; --gray:#6b7280; --border:#f0e6ec;
+      --font-body:'Manrope',sans-serif;
+      --font-display:'Playfair Display',Georgia,serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:var(--font-body);color:var(--dark);background:#fff;-webkit-font-smoothing:antialiased;}
+
+    /* NAV */
+    .pd-nav{
+      position:sticky;top:0;z-index:999;height:68px;
+      background:#fff;border-bottom:1.5px solid var(--border);
+      box-shadow:0 2px 20px rgba(212,49,126,.06);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 40px;
+    }
+    .pd-nav__logo{font-family:var(--font-display);font-size:1.35rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);text-decoration:none;}
+    .pd-nav__logo span{color:var(--pink);}
+    .pd-nav__back{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:var(--gray);text-decoration:none;padding:7px 16px;border:1.5px solid var(--border);border-radius:999px;transition:.2s;}
+    .pd-nav__back:hover{color:var(--pink);border-color:var(--pink-border);background:var(--pink-pale);}
+
+    /* BREADCRUMB */
+    .pd-crumb{max-width:1200px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--gray);}
+    .pd-crumb a{color:var(--gray);text-decoration:none;transition:.15s;}
+    .pd-crumb a:hover{color:var(--pink);}
+    .pd-crumb i{font-size:.6rem;}
+
+    /* MAIN GRID */
+    .pd-main{max-width:1200px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+
+    /* GALLERY */
+    .pd-gallery{}
+    .pd-gallery__main{
+      width:100%;aspect-ratio:1;border-radius:24px;overflow:hidden;
+      background:var(--pink-pale);border:1.5px solid var(--border);
+      margin-bottom:14px;position:relative;
+    }
+    .pd-gallery__main img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s;}
+    .pd-gallery__badge{
+      position:absolute;top:16px;left:16px;
+      background:var(--pink);color:#fff;
+      font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+      padding:5px 12px;border-radius:999px;
+    }
+    .pd-gallery__thumbs{display:flex;gap:10px;}
+    .pd-gallery__thumb{
+      width:72px;height:72px;border-radius:12px;overflow:hidden;
+      border:1.5px solid var(--border);cursor:pointer;transition:.2s;flex-shrink:0;
+    }
+    .pd-gallery__thumb.active{border-color:var(--pink);box-shadow:0 0 0 2px rgba(212,49,126,.2);}
+    .pd-gallery__thumb img{width:100%;height:100%;object-fit:cover;}
+
+    /* INFO */
+    .pd-info{}
+    .pd-info__cat{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px;}
+    .pd-info__title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:500;letter-spacing:-.02em;color:var(--dark);line-height:1.2;margin-bottom:14px;}
+    .pd-info__rating{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+    .pd-info__stars{color:var(--gold);font-size:1rem;letter-spacing:2px;}
+    .pd-info__rating-count{font-size:.82rem;color:var(--gray);font-weight:600;}
+
+    /* PRICE */
+    .pd-price{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+    .pd-price__new{font-family:var(--font-display);font-size:2rem;font-weight:500;color:var(--pink);}
+    .pd-price__old{font-size:1.1rem;color:#bba8ae;text-decoration:line-through;}
+    .pd-price__save{background:#fef3cd;color:#92600a;font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;}
+
+    /* VARIANTS */
+    .pd-label{font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4a3840;margin-bottom:10px;}
+    .pd-variants{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+    .pd-variant-btn{
+      padding:8px 18px;border-radius:10px;
+      border:1.5px solid var(--pink-border);background:#fff;
+      font-family:var(--font-body);font-size:.85rem;font-weight:700;color:#4a3840;
+      cursor:pointer;transition:.2s;
+    }
+    .pd-variant-btn:hover{border-color:var(--pink);color:var(--pink);}
+    .pd-variant-btn.active{background:var(--pink-pale);border-color:var(--pink);color:var(--pink);}
+
+    /* QTY + ADD */
+    .pd-actions{display:flex;gap:12px;margin-bottom:24px;align-items:center;}
+    .pd-qty{
+      display:flex;align-items:center;gap:0;
+      border:1.5px solid var(--pink-border);border-radius:12px;overflow:hidden;
+    }
+    .pd-qty__btn{
+      width:42px;height:48px;border:none;background:#fff;
+      font-size:1.2rem;cursor:pointer;color:var(--pink);
+      transition:.15s;font-weight:700;
+    }
+    .pd-qty__btn:hover{background:var(--pink-pale);}
+    .pd-qty__val{
+      width:48px;height:48px;border:none;
+      border-left:1.5px solid var(--pink-border);
+      border-right:1.5px solid var(--pink-border);
+      text-align:center;font-family:var(--font-body);
+      font-size:.95rem;font-weight:800;color:var(--dark);
+      background:#fff;
+    }
+    .pd-add{
+      flex:1;height:48px;background:var(--pink);color:#fff;
+      border:none;border-radius:12px;
+      font-family:var(--font-body);font-size:.92rem;font-weight:800;
+      cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+      transition:.2s;box-shadow:0 4px 16px rgba(212,49,126,.25);
+    }
+    .pd-add:hover{background:var(--pink-deep);transform:translateY(-1px);}
+    .pd-add:active{transform:translateY(0);}
+    .pd-wishlist{
+      width:48px;height:48px;border-radius:12px;
+      border:1.5px solid var(--pink-border);background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--pink);cursor:pointer;font-size:1.1rem;
+      transition:.2s;flex-shrink:0;
+    }
+    .pd-wishlist:hover{background:var(--pink-pale);}
+
+    /* DELIVERY */
+    .pd-delivery{
+      background:var(--pink-pale);border:1.5px solid var(--pink-border);
+      border-radius:14px;padding:16px 20px;margin-bottom:24px;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .pd-delivery__item{display:flex;align-items:center;gap:10px;font-size:.83rem;color:#4a3840;}
+    .pd-delivery__item i{color:var(--teal-dark);width:16px;text-align:center;}
+
+    /* TABS */
+    .pd-tabs{border-bottom:2px solid var(--border);display:flex;gap:0;margin-bottom:28px;}
+    .pd-tab{
+      padding:12px 20px;font-size:.85rem;font-weight:700;color:var(--gray);
+      cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;
+      transition:.2s;background:none;border-top:none;border-left:none;border-right:none;
+      font-family:var(--font-body);
+    }
+    .pd-tab.active{color:var(--pink);border-bottom-color:var(--pink);}
+    .pd-tab-panel{display:none;font-size:.9rem;color:#4a3840;line-height:1.85;}
+    .pd-tab-panel.active{display:block;}
+    .pd-tab-panel ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .pd-tab-panel ul li{display:flex;align-items:flex-start;gap:10px;}
+    .pd-tab-panel ul li::before{content:'🐾';font-size:.78rem;flex-shrink:0;margin-top:2px;}
+    .pd-spec-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+    .pd-spec-table tr{border-bottom:1px solid var(--border);}
+    .pd-spec-table td{padding:10px 4px;}
+    .pd-spec-table td:first-child{color:var(--gray);font-weight:600;width:40%;}
+    .pd-spec-table td:last-child{font-weight:700;color:var(--dark);}
+
+    /* REVIEWS SECTION */
+    .pd-reviews-section{max-width:1200px;margin:0 auto;padding:0 40px 80px;}
+    .pd-reviews-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;}
+    .pd-reviews-head h2{font-family:var(--font-display);font-size:1.5rem;font-weight:400;}
+    .pd-reviews-summary{display:flex;align-items:center;gap:32px;background:var(--pink-pale);border-radius:20px;padding:28px;margin-bottom:32px;}
+    .pd-reviews-big{text-align:center;}
+    .pd-reviews-big .score{font-family:var(--font-display);font-size:4rem;font-weight:400;color:var(--dark);line-height:1;}
+    .pd-reviews-big .stars{color:var(--gold);font-size:1.2rem;margin:6px 0;}
+    .pd-reviews-big .count{font-size:.78rem;color:var(--gray);font-weight:600;}
+    .pd-reviews-bars{flex:1;display:flex;flex-direction:column;gap:8px;}
+    .pd-bar-row{display:flex;align-items:center;gap:10px;font-size:.78rem;}
+    .pd-bar-row span:first-child{width:40px;color:var(--gray);font-weight:600;}
+    .pd-bar-track{flex:1;height:8px;background:var(--border);border-radius:999px;overflow:hidden;}
+    .pd-bar-fill{height:100%;border-radius:999px;background:var(--gold);}
+    .pd-bar-row span:last-child{width:30px;text-align:right;color:var(--gray);font-weight:600;}
+    .pd-reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .pd-review-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;}
+    .pd-review-card__top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+    .pd-review-card__name{font-weight:800;font-size:.88rem;color:var(--dark);}
+    .pd-review-card__date{font-size:.72rem;color:var(--gray);}
+    .pd-review-card__stars{color:var(--gold);font-size:.85rem;margin-bottom:8px;}
+    .pd-review-card__text{font-size:.84rem;color:#4a3840;line-height:1.7;}
+    .pd-review-card__pet{font-size:.72rem;color:var(--teal-dark);font-weight:700;margin-top:8px;}
+
+    /* RELATED */
+    .pd-related{max-width:1200px;margin:0 auto;padding:0 40px 80px;}
+    .pd-related h2{font-family:var(--font-display);font-size:1.5rem;font-weight:400;margin-bottom:24px;}
+    .pd-related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .pd-rel-card{background:var(--pink-pale);border-radius:14px;overflow:hidden;cursor:pointer;transition:.2s;border:1.5px solid transparent;}
+    .pd-rel-card:hover{transform:translateY(-4px);border-color:var(--pink-border);box-shadow:0 8px 28px rgba(212,49,126,.12);}
+    .pd-rel-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
+    .pd-rel-card__body{padding:12px;}
+    .pd-rel-card__name{font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.4;}
+    .pd-rel-card__price{font-size:.88rem;font-weight:800;color:var(--pink);}
+
+    /* TOAST */
+    .pd-toast{
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);
+      background:var(--dark);color:#fff;padding:14px 28px;
+      border-radius:999px;font-size:.88rem;font-weight:700;
+      display:flex;align-items:center;gap:10px;
+      box-shadow:0 8px 32px rgba(0,0,0,.25);
+      transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+      z-index:9999;pointer-events:none;
+    }
+    .pd-toast.show{transform:translateX(-50%) translateY(0);}
+    .pd-toast i{color:var(--teal);}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .pd-main{grid-template-columns:1fr;gap:32px;}
+      .pd-reviews-grid{grid-template-columns:1fr;}
+      .pd-related-grid{grid-template-columns:repeat(2,1fr);}
+      .pd-reviews-summary{flex-direction:column;}
+    }
+    @media(max-width:600px){
+      .pd-nav,.pd-crumb,.pd-main,.pd-reviews-section,.pd-related{padding-left:16px;padding-right:16px;}
+      .pd-actions{flex-wrap:wrap;}
+      .pd-add{flex:unset;width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="pd-nav">
+  <a href="/" class="pd-nav__logo">Petcare <span>Spa</span></a>
+  <a href="/#shop" class="pd-nav__back"><i class="fa fa-arrow-left"></i> Back to Shop</a>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="pd-crumb">
+  <a href="/">Home</a><i class="fa fa-chevron-right"></i>
+  <a href="/#shop">Shop</a><i class="fa fa-chevron-right"></i>
+  <a href="/#shop">Food</a><i class="fa fa-chevron-right"></i>
+  <span style="color:var(--dark);font-weight:600;">Royal Canin Adult Dog Food</span>
+</div>
+
+<!-- MAIN -->
+<div class="pd-main">
+
+  <!-- GALLERY -->
+  <div class="pd-gallery">
+    <div class="pd-gallery__main">
+      <span class="pd-gallery__badge">Bestseller</span>
+      <img id="main-img" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=700&q=85" alt="Royal Canin"/>
+    </div>
+    <div class="pd-gallery__thumbs">
+      <div class="pd-gallery__thumb active" onclick="switchImg(this,'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=700&q=85')">
+        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=200&q=80" alt=""/>
+      </div>
+      <div class="pd-gallery__thumb" onclick="switchImg(this,'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=700&q=85')">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200&q=80" alt=""/>
+      </div>
+      <div class="pd-gallery__thumb" onclick="switchImg(this,'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&q=85')">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=200&q=80" alt=""/>
+      </div>
+      <div class="pd-gallery__thumb" onclick="switchImg(this,'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700&q=85')">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=200&q=80" alt=""/>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="pd-info">
+    <div class="pd-info__cat">FOOD · DOG</div>
+    <h1 class="pd-info__title">Royal Canin Adult Dog Food 2kg</h1>
+    <div class="pd-info__rating">
+      <span class="pd-info__stars">★★★★★</span>
+      <span class="pd-info__rating-count">4.8 · 124 reviews</span>
+    </div>
+
+    <div class="pd-price">
+      <span class="pd-price__new">250.000₫</span>
+      <span class="pd-price__old">320.000₫</span>
+      <span class="pd-price__save">Save 22%</span>
+    </div>
+
+    <!-- SIZE -->
+    <div class="pd-label">Size</div>
+    <div class="pd-variants" id="size-group">
+      <button class="pd-variant-btn active" onclick="selectVariant(this,'size-group')">2kg</button>
+      <button class="pd-variant-btn" onclick="selectVariant(this,'size-group')">5kg</button>
+      <button class="pd-variant-btn" onclick="selectVariant(this,'size-group')">10kg</button>
+    </div>
+
+    <!-- FLAVOUR -->
+    <div class="pd-label">Flavour</div>
+    <div class="pd-variants" id="flavour-group">
+      <button class="pd-variant-btn active" onclick="selectVariant(this,'flavour-group')">Original</button>
+      <button class="pd-variant-btn" onclick="selectVariant(this,'flavour-group')">Sensitive</button>
+      <button class="pd-variant-btn" onclick="selectVariant(this,'flavour-group')">Weight Care</button>
+    </div>
+
+    <!-- QTY + ADD -->
+    <div class="pd-actions">
+      <div class="pd-qty">
+        <button class="pd-qty__btn" onclick="changeQty(-1)">−</button>
+        <input class="pd-qty__val" id="qty" value="1" readonly/>
+        <button class="pd-qty__btn" onclick="changeQty(1)">+</button>
+      </div>
+      <button class="pd-add" onclick="addToCart()">
+        <i class="fa fa-shopping-bag"></i> Add to Cart
+      </button>
+      <button class="pd-wishlist" title="Save">
+        <i class="fa fa-heart"></i>
+      </button>
+    </div>
+
+    <!-- DELIVERY -->
+    <div class="pd-delivery">
+      <div class="pd-delivery__item"><i class="fa fa-truck"></i> Free delivery on orders over 500.000₫</div>
+      <div class="pd-delivery__item"><i class="fa fa-rotate-left"></i> 30-day return policy</div>
+      <div class="pd-delivery__item"><i class="fa fa-shield-alt"></i> Authentic product guaranteed</div>
+    </div>
+
+    <!-- TABS -->
+    <div class="pd-tabs">
+      <button class="pd-tab active" onclick="switchTab(this,'desc')">Description</button>
+      <button class="pd-tab" onclick="switchTab(this,'ingredients')">Ingredients</button>
+      <button class="pd-tab" onclick="switchTab(this,'specs')">Specs</button>
+    </div>
+
+    <div class="pd-tab-panel active" id="tab-desc">
+      <p>Royal Canin Adult Dog Food is precisely formulated to meet the nutritional needs of adult dogs. Each kibble is designed to support digestive health, maintain ideal weight, and promote a healthy, shiny coat.</p>
+      <p style="margin-top:14px;">Recommended for dogs aged 1–7 years of medium breeds (11–25kg). Suitable as a complete daily diet.</p>
+      <ul style="margin-top:14px;">
+        <li>Supports healthy digestion with precise fibre content</li>
+        <li>Maintains ideal body condition with balanced protein and fat</li>
+        <li>Promotes skin and coat health with Omega-3 & 6</li>
+        <li>Strengthens the immune system with antioxidants</li>
+      </ul>
+    </div>
+
+    <div class="pd-tab-panel" id="tab-ingredients">
+      <p>Dehydrated poultry protein, rice, animal fats, maize flour, maize gluten, hydrolysed animal proteins, beet pulp, minerals, fish oil, soya oil, fructo-oligo-saccharides, hydrolysed yeast (source of mannan-oligo-saccharides), psyllium husks and seeds, marigold extract.</p>
+      <p style="margin-top:12px;font-size:.82rem;color:var(--gray);">Additives per kg: Vitamin A 22500 IU, Vitamin D3 900 IU, Vitamin E 600mg, Taurine 1800mg, Lutein 5mg.</p>
+    </div>
+
+    <div class="pd-tab-panel" id="tab-specs">
+      <table class="pd-spec-table">
+        <tr><td>Brand</td><td>Royal Canin</td></tr>
+        <tr><td>Weight</td><td>2kg</td></tr>
+        <tr><td>Life Stage</td><td>Adult (1–7 years)</td></tr>
+        <tr><td>Breed Size</td><td>Medium (11–25kg)</td></tr>
+        <tr><td>Protein</td><td>25%</td></tr>
+        <tr><td>Fat</td><td>14%</td></tr>
+        <tr><td>Fibre</td><td>2.9%</td></tr>
+        <tr><td>Moisture</td><td>8%</td></tr>
+        <tr><td>Origin</td><td>France</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="pd-reviews-section">
+  <div class="pd-reviews-head">
+    <h2>Customer Reviews</h2>
+    <button style="background:none;border:1.5px solid var(--pink-border);padding:8px 20px;border-radius:999px;font-family:var(--font-body);font-size:.82rem;font-weight:700;color:var(--pink);cursor:pointer;">Write a review</button>
+  </div>
+
+  <div class="pd-reviews-summary">
+    <div class="pd-reviews-big">
+      <div class="score">4.8</div>
+      <div class="stars">★★★★★</div>
+      <div class="count">124 reviews</div>
+    </div>
+    <div class="pd-reviews-bars">
+      <div class="pd-bar-row"><span>5★</span><div class="pd-bar-track"><div class="pd-bar-fill" style="width:78%"></div></div><span>96</span></div>
+      <div class="pd-bar-row"><span>4★</span><div class="pd-bar-track"><div class="pd-bar-fill" style="width:14%"></div></div><span>17</span></div>
+      <div class="pd-bar-row"><span>3★</span><div class="pd-bar-track"><div class="pd-bar-fill" style="width:5%"></div></div><span>7</span></div>
+      <div class="pd-bar-row"><span>2★</span><div class="pd-bar-track"><div class="pd-bar-fill" style="width:2%"></div></div><span>3</span></div>
+      <div class="pd-bar-row"><span>1★</span><div class="pd-bar-track"><div class="pd-bar-fill" style="width:1%"></div></div><span>1</span></div>
+    </div>
+  </div>
+
+  <div class="pd-reviews-grid">
+    <div class="pd-review-card">
+      <div class="pd-review-card__top">
+        <div class="pd-review-card__name">Linh T.</div>
+        <div class="pd-review-card__date">May 12, 2026</div>
+      </div>
+      <div class="pd-review-card__stars">★★★★★</div>
+      <div class="pd-review-card__text">My golden retriever absolutely loves this food. His coat has become so much shinier and he finishes every single bowl. Been using Royal Canin for 2 years now!</div>
+      <div class="pd-review-card__pet">🐶 Golden Retriever, 3 years</div>
+    </div>
+    <div class="pd-review-card">
+      <div class="pd-review-card__top">
+        <div class="pd-review-card__name">Minh D.</div>
+        <div class="pd-review-card__date">April 28, 2026</div>
+      </div>
+      <div class="pd-review-card__stars">★★★★★</div>
+      <div class="pd-review-card__text">Great quality and my vet recommends it. The kibble size is perfect for medium breeds. Delivery was fast and packaging was secure. Will reorder!</div>
+      <div class="pd-review-card__pet">🐶 Labrador Mix, 4 years</div>
+    </div>
+    <div class="pd-review-card">
+      <div class="pd-review-card__top">
+        <div class="pd-review-card__name">Thu P.</div>
+        <div class="pd-review-card__date">April 10, 2026</div>
+      </div>
+      <div class="pd-review-card__stars">★★★★☆</div>
+      <div class="pd-review-card__text">Good food overall, my dog digests it well without any stomach issues. Slightly pricey but worth it for the quality. Would recommend for adult dogs.</div>
+      <div class="pd-review-card__pet">🐶 Beagle, 2 years</div>
+    </div>
+    <div class="pd-review-card">
+      <div class="pd-review-card__top">
+        <div class="pd-review-card__name">An N.</div>
+        <div class="pd-review-card__date">March 22, 2026</div>
+      </div>
+      <div class="pd-review-card__stars">★★★★★</div>
+      <div class="pd-review-card__text">Switched from another brand and noticed a big difference. Less shedding, better energy levels. Rocky is happier than ever. PetCare Spa always has it in stock!</div>
+      <div class="pd-review-card__pet">🐶 Border Collie, 5 years</div>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED -->
+<div class="pd-related">
+  <h2>You might also like</h2>
+  <div class="pd-related-grid">
+    <div class="pd-rel-card">
+      <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&q=80" alt=""/>
+      <div class="pd-rel-card__body">
+        <div class="pd-rel-card__name">Whiskas Cat Pate</div>
+        <div class="pd-rel-card__price">35.000₫</div>
+      </div>
+    </div>
+    <div class="pd-rel-card">
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=300&q=80" alt=""/>
+      <div class="pd-rel-card__body">
+        <div class="pd-rel-card__name">Biogroom Herbal Shampoo</div>
+        <div class="pd-rel-card__price">120.000₫</div>
+      </div>
+    </div>
+    <div class="pd-rel-card">
+      <img src="https://images.unsplash.com/photo-1592754862816-1a21a4ea2281?w=300&q=80" alt=""/>
+      <div class="pd-rel-card__body">
+        <div class="pd-rel-card__name">Ultra Soft Fleece Pet Bed</div>
+        <div class="pd-rel-card__price">195.000₫</div>
+      </div>
+    </div>
+    <div class="pd-rel-card">
+      <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=300&q=80" alt=""/>
+      <div class="pd-rel-card__body">
+        <div class="pd-rel-card__name">Dog Rope Tug Toy</div>
+        <div class="pd-rel-card__price">65.000₫</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="pd-toast" id="toast">
+  <i class="fa fa-check-circle"></i> Added to cart!
+</div>
+
+<script>
+  let qty = 1;
+
+  function changeQty(d) {
+    qty = Math.max(1, qty + d);
+    document.getElementById('qty').value = qty;
+  }
+
+  function selectVariant(btn, groupId) {
+    document.querySelectorAll(`#${groupId} .pd-variant-btn`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function switchImg(thumb, src) {
+    document.querySelectorAll('.pd-gallery__thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    document.getElementById('main-img').src = src;
+  }
+
+  function switchTab(btn, id) {
+    document.querySelectorAll('.pd-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pd-tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+
+  function addToCart() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+</script>
+</body>
+</html>
