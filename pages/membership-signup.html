@@ -34,7 +34,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── HEADER ─────────────────────────────────── */
+    /* ── HEADER ── */
     .signup-header {
       display: flex;
       align-items: center;
@@ -47,180 +47,51 @@
       top: 0;
       z-index: 100;
     }
-
-    .signup-logo {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      text-decoration: none;
-    }
+    .signup-logo { font-family: var(--font-display); font-size: 1.4rem; text-decoration: none; }
     .signup-logo span:first-child { color: var(--brown); }
     .signup-logo span:last-child  { color: var(--pink); }
-
-    .signup-back {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: .85rem;
-      font-weight: 700;
-      color: var(--brown-mid);
-      text-decoration: none;
-      transition: color .2s;
-    }
+    .signup-back { display: flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 700; color: var(--brown-mid); text-decoration: none; transition: color .2s; }
     .signup-back:hover { color: var(--pink); }
     .signup-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ── PROGRESS BAR ───────────────────────────── */
-    .progress-wrap {
-      max-width: 640px;
-      margin: 40px auto 0;
-      padding: 0 24px;
-    }
-
-    .progress-steps {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      position: relative;
-      margin-bottom: 8px;
-    }
-
-    .progress-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
-      flex: 1;
-    }
-
-    .progress-step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 18px;
-      left: 50%;
-      width: 100%;
-      height: 2px;
-      background: #f0dde6;
-      z-index: 0;
-    }
-
-    .progress-step.done:not(:last-child)::after,
-    .progress-step.active:not(:last-child)::after {
-      background: linear-gradient(90deg, var(--teal), #f0dde6);
-    }
-
-    .progress-step.done:not(:last-child)::after {
-      background: var(--teal);
-    }
-
-    .step-dot {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid #f0dde6;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .78rem;
-      font-weight: 900;
-      color: #c9a0b0;
-      transition: all .3s ease;
-      position: relative;
-      z-index: 2;
-    }
-
-    .progress-step.done .step-dot {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: #fff;
-    }
-
-    .progress-step.active .step-dot {
-      background: var(--pink);
-      border-color: var(--pink);
-      color: #fff;
-      box-shadow: 0 0 0 5px rgba(166,53,88,.12);
-    }
-
-    .step-label {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: #c9a0b0;
-      white-space: nowrap;
-    }
-
+    /* ── PROGRESS ── */
+    .progress-wrap { max-width: 640px; margin: 40px auto 0; padding: 0 24px; }
+    .progress-steps { display: flex; align-items: center; justify-content: center; gap: 0; position: relative; margin-bottom: 8px; }
+    .progress-step { display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; z-index: 1; flex: 1; }
+    .progress-step:not(:last-child)::after { content: ''; position: absolute; top: 18px; left: 50%; width: 100%; height: 2px; background: #f0dde6; z-index: 0; }
+    .progress-step.done:not(:last-child)::after { background: var(--teal); }
+    .progress-step.active:not(:last-child)::after { background: linear-gradient(90deg, var(--teal), #f0dde6); }
+    .step-dot { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #f0dde6; background: #fff; display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 900; color: #c9a0b0; transition: all .3s ease; position: relative; z-index: 2; }
+    .progress-step.done .step-dot  { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .progress-step.active .step-dot { background: var(--pink); border-color: var(--pink); color: #fff; box-shadow: 0 0 0 5px rgba(166,53,88,.12); }
+    .step-label { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #c9a0b0; white-space: nowrap; }
     .progress-step.active .step-label { color: var(--pink); }
     .progress-step.done .step-label   { color: var(--teal-dark); }
 
-    /* ── MAIN CARD ───────────────────────────────── */
+    /* ── MAIN CARD ── */
     .signup-card {
-      margin: 32px auto 60px;
-      padding: 0 24px;
+         margin: 32px auto 60px; 
+         padding: 0 24px; 
     }
-
-    .step-panel {
-      display: none;
-      animation: stepIn .35s ease;
-    }
-
+    .step-panel { display: none; animation: stepIn .35s ease; }
     .step-panel.active { display: block; }
+    @keyframes stepIn { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
 
-    @keyframes stepIn {
-      from { opacity: 0; transform: translateX(18px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
+    .step-heading { text-align: center; margin-bottom: 36px; }
+    .step-eyebrow { font-size: 11px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; }
+    .step-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 500; color: var(--brown); line-height: 1.2; margin-bottom: 10px; }
+    .step-title em { font-style: italic; color: var(--pink); }
+    .step-desc { font-size: .9rem; color: var(--brown-mid); line-height: 1.7; }
 
-    /* Step heading */
-    .step-heading {
-      text-align: center;
-      margin-bottom: 36px;
-    }
+    /* ── STEP 1: BILLING TOGGLE ── */
+    .billing-toggle { display: flex; justify-content: center; margin-bottom: 28px; }
+    .billing-toggle button { padding: 8px 24px; border: 1.5px solid var(--teal-dark); background: transparent; font-family: var(--font-body); font-size: .85rem; font-weight: 700; color: var(--brown); cursor: pointer; transition: background .2s, color .2s; }
+    .billing-toggle button:first-child { border-radius: 30px 0 0 30px; }
+    .billing-toggle button:last-child  { border-radius: 0 30px 30px 0; border-left: none; }
+    .billing-toggle button.active { background: var(--teal); color: #fff; border-color: var(--teal-dark); }
+    .save-tag { display: inline-block; background: #fde68a; color: #78350f; font-size: .65rem; font-weight: 900; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
 
-    .step-eyebrow {
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--teal-dark);
-      margin-bottom: 10px;
-    }
-
-    .step-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      font-weight: 500;
-      color: var(--brown);
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .step-title em {
-      font-style: italic;
-      color: var(--pink);
-    }
-
-    .step-desc {
-      font-size: .9rem;
-      color: var(--brown-mid);
-      line-height: 1.7;
-    }
-
-    /* ── STEP 1: PLAN CARDS ──────────────────────── */
-    .mp-cross {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: #e5e0dd;
-    flex-shrink: 0;
-    margin-top: 1px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .mp-cross svg { width: 10px; height: 10px; fill: none; stroke: #9b7060; stroke-width: 2; stroke-linecap: round; }
-  .mp-features li span.mp-cross ~ span { color: #b09080; }
+    /* ── STEP 1: PLAN CARDS (redesigned) ── */
     .plan-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -229,72 +100,85 @@
     }
 
     .plan-option {
-      border: 2px solid #f0dde6;
+      border: 2px solid #fce4ee;
       border-radius: 22px;
-      padding: 24px 20px;
+      padding: 26px 20px 22px;
       cursor: pointer;
-      transition: all .25s ease;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
       position: relative;
       background: #fff;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
     .plan-option:hover {
       border-color: var(--pink-mid);
-      box-shadow: 0 8px 24px rgba(166,53,88,.08);
-      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(166,53,88,.1);
+      transform: translateY(-4px);
     }
 
     .plan-option.selected {
       border-color: var(--pink);
-      background: linear-gradient(135deg, #fff0f5, #fce4ee);
-      box-shadow: 0 8px 28px rgba(166,53,88,.14);
-      transform: translateY(-3px);
+      background: linear-gradient(160deg, #fff8fb 0%, #fce4ee 100%);
+      box-shadow: 0 12px 32px rgba(166,53,88,.14);
+      transform: translateY(-4px);
     }
 
+    /* tick khi selected */
     .plan-option.selected::after {
       content: '✓';
       position: absolute;
-      top: -10px;
-      right: -10px;
+      top: -11px;
+      right: -11px;
       width: 24px;
       height: 24px;
       background: var(--teal);
       color: #fff;
       border-radius: 50%;
-      font-size: .7rem;
+      font-size: .68rem;
       font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       line-height: 24px;
+      text-align: center;
     }
 
+    /* badge Most Popular */
     .plan-option__badge {
-      display: inline-block;
+      position: absolute;
+      top: -12px;
+      left: 18px;
       background: var(--teal);
       color: #fff;
       font-size: .65rem;
       font-weight: 900;
-      letter-spacing: .08em;
+      letter-spacing: .09em;
       text-transform: uppercase;
-      padding: 3px 12px;
+      padding: 4px 14px;
       border-radius: 20px;
-      margin-bottom: 12px;
     }
 
-    .plan-option__icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .plan-option__icon { font-size: 1.9rem; margin-bottom: 10px; }
 
     .plan-option__name {
       font-family: var(--font-display);
       font-size: 1.15rem;
       color: var(--brown);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    /* giá gốc gạch ngang — chỉ Plus có */
+    .plan-option__orig {
+      font-size: .75rem;
+      color: #c9a0b0;
+      text-decoration: line-through;
+      min-height: 16px;
+      display: block;
+      margin-bottom: 2px;
     }
 
     .plan-option__price {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--pink);
       font-weight: 700;
       line-height: 1;
@@ -302,11 +186,19 @@
     }
 
     .plan-option__period {
-      font-size: .72rem;
+      font-size: .7rem;
       color: var(--brown-light);
+      margin-bottom: 16px;
+    }
+
+    /* divider */
+    .plan-option__div {
+      height: 1px;
+      background: rgba(166,53,88,.1);
       margin-bottom: 14px;
     }
 
+    /* feature list */
     .plan-option__features {
       list-style: none;
       text-align: left;
@@ -315,456 +207,106 @@
       line-height: 1.5;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 7px;
+      flex: 1;
     }
 
-    .plan-option__features li::before {
-      content: '🐾 ';
-      font-size: .65rem;
-    }
-
-    /* Billing toggle */
-    .billing-toggle {
+    .plan-option__features li {
       display: flex;
-      justify-content: center;
-      margin-bottom: 28px;
+      align-items: flex-start;
+      gap: 7px;
     }
 
-    .billing-toggle button {
-      padding: 8px 24px;
-      border: 1.5px solid var(--teal-dark);
-      background: transparent;
-      font-family: var(--font-body);
-      font-size: .85rem;
-      font-weight: 700;
-      color: var(--brown);
-      cursor: pointer;
-      transition: background .2s, color .2s;
-    }
-
-    .billing-toggle button:first-child { border-radius: 30px 0 0 30px; }
-    .billing-toggle button:last-child  { border-radius: 0 30px 30px 0; border-left: none; }
-
-    .billing-toggle button.active {
+    /* check dot */
+    .plan-option__features li .fc {
+      flex-shrink: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
       background: var(--teal);
-      color: #fff;
-      border-color: var(--teal-dark);
-    }
-
-    .save-tag {
-      display: inline-block;
-      background: #fde68a;
-      color: #78350f;
-      font-size: .65rem;
-      font-weight: 900;
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    /* ── STEP 2 & 3: FORM ────────────────────────── */
-    .form-card {
-      background: #fff;
-      border-radius: 24px;
-      border: 1.5px solid #f0dde6;
-      padding: 36px 40px;
-      box-shadow: 0 8px 32px rgba(166,53,88,.06);
-      margin-bottom: 28px;
-    }
-
-    .form-section-title {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      color: var(--brown);
-      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      margin-top: 1px;
     }
+    .plan-option__features li .fc svg { width: 8px; height: 8px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
-    .form-section-title span {
-      font-size: 1.1rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
+    /* ── STEP 2 & 3: FORM ── */
+    .form-card { background: #fff; border-radius: 24px; border: 1.5px solid #f0dde6; padding: 36px 40px; box-shadow: 0 8px 32px rgba(166,53,88,.06); margin-bottom: 28px; }
+    .form-section-title { font-family: var(--font-display); font-size: 1.05rem; color: var(--brown); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-grid.full { grid-template-columns: 1fr; }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group.span2 { grid-column: span 2; }
-
-    label {
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid #f0dde6;
-      border-radius: 12px;
-      font-family: var(--font-body);
-      font-size: .92rem;
-      color: var(--brown);
-      background: #fffafb;
-      transition: border-color .2s, box-shadow .2s;
-      outline: none;
-      appearance: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(45,212,191,.12);
-      background: #fff;
-    }
-
+    label { font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--brown-mid); }
+    input, select, textarea { width: 100%; padding: 12px 16px; border: 1.5px solid #f0dde6; border-radius: 12px; font-family: var(--font-body); font-size: .92rem; color: var(--brown); background: #fffafb; transition: border-color .2s, box-shadow .2s; outline: none; appearance: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(45,212,191,.12); background: #fff; }
     input::placeholder, textarea::placeholder { color: #c9a0b0; }
-
     textarea { resize: none; height: 80px; }
 
-    /* Pet type selector */
-    .pet-type-grid{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 16px;
-    }
+    /* pet type */
+    .pet-type-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .pet-type-btn { border: 1.5px solid #f3d9e6; background: rgba(255,255,255,.92); border-radius: 22px; padding: 20px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; cursor: pointer; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+    .pet-type-btn:hover { transform: translateY(-4px); border-color: #2dd4bf; background: #f8fffe; box-shadow: 0 14px 30px rgba(45,212,191,.10), 0 8px 18px rgba(236,72,153,.08); }
+    .pet-type-btn.selected { border-color: #ec4899; background: linear-gradient(145deg, #fff 0%, #fdf2f8 100%); box-shadow: 0 0 0 4px rgba(236,72,153,.10), 0 18px 34px rgba(236,72,153,.12); }
+    .pet-type-btn__icon { width: 58px; height: 58px; border-radius: 18px; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, rgba(236,72,153,.10), rgba(45,212,191,.10)); }
+    .pet-type-btn__icon i { font-size: 28px; color: #ec4899; line-height: 1; }
+    .pet-type-btn:hover .pet-type-btn__icon i { color: #2dd4bf; }
+    .pet-type-btn.selected .pet-type-btn__icon { background: linear-gradient(145deg, rgba(236,72,153,.16), rgba(45,212,191,.14)); }
+    .pet-type-btn__label { font-size: .95rem; font-weight: 700; color: #1f1720; }
 
-    .pet-type-btn{
-        border: 1.5px solid #f3d9e6;
-        background: rgba(255,255,255,.92);
-        border-radius: 22px;
-        padding: 20px 18px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        cursor: pointer;
-        transition:
-            transform .2s ease,
-            border-color .2s ease,
-            box-shadow .2s ease,
-            background .2s ease;
-    }
-
-    .pet-type-btn:hover{
-        transform: translateY(-4px);
-        border-color: #2dd4bf;
-        background: #f8fffe;
-        box-shadow:
-            0 14px 30px rgba(45,212,191,.10),
-            0 8px 18px rgba(236,72,153,.08);
-    }
-
-    .pet-type-btn.selected{
-        border-color: #ec4899;
-        background: linear-gradient(
-            145deg,
-            #fff 0%,
-            #fdf2f8 100%
-        );
-
-        box-shadow:
-            0 0 0 4px rgba(236,72,153,.10),
-            0 18px 34px rgba(236,72,153,.12);
-    }
-
-    .pet-type-btn__icon{
-        width: 58px;
-        height: 58px;
-        border-radius: 18px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background:
-            linear-gradient(
-            145deg,
-            rgba(236,72,153,.10),
-            rgba(45,212,191,.10)
-            );
-    }
-
-    .pet-type-btn__icon i{
-        font-size: 28px;
-        color: #ec4899;
-        line-height: 1;
-    }
-
-    .pet-type-btn:hover .pet-type-btn__icon i{
-        color: #2dd4bf;
-    }
-
-    .pet-type-btn.selected .pet-type-btn__icon{
-        background:
-            linear-gradient(
-            145deg,
-            rgba(236,72,153,.16),
-            rgba(45,212,191,.14)
-            );
-    }
-
-    .pet-type-btn__label{
-        font-size: .95rem;
-        font-weight: 700;
-        color: #1f1720;
-    }
-
-    /* ── STEP 4: PAYMENT ─────────────────────────── */
-    .order-summary {
-      background: linear-gradient(135deg, #fff0f5, #fce4ee);
-      border: 1.5px solid var(--pink-mid);
-      border-radius: 20px;
-      padding: 24px 28px;
-      margin-bottom: 24px;
-    }
-
-    .order-summary__title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--brown);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .order-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: .88rem;
-      color: var(--brown-mid);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(249,184,208,.4);
-    }
-
+    /* ── STEP 4: PAYMENT ── */
+    .order-summary { background: linear-gradient(135deg, #fff0f5, #fce4ee); border: 1.5px solid var(--pink-mid); border-radius: 20px; padding: 24px 28px; margin-bottom: 24px; }
+    .order-summary__title { font-family: var(--font-display); font-size: 1.1rem; color: var(--brown); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .order-row { display: flex; justify-content: space-between; align-items: center; font-size: .88rem; color: var(--brown-mid); padding: 6px 0; border-bottom: 1px solid rgba(249,184,208,.4); }
     .order-row:last-child { border-bottom: none; }
     .order-row strong { color: var(--brown); }
-
-    .order-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 2px solid var(--pink-mid);
-    }
-
+    .order-total { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 2px solid var(--pink-mid); }
     .order-total span:first-child { font-weight: 900; font-size: .9rem; color: var(--brown); }
     .order-total span:last-child  { font-family: var(--font-display); font-size: 1.6rem; color: var(--pink); font-weight: 700; }
-
-    .payment-methods {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .pay-method {
-      border: 2px solid #f0dde6;
-      border-radius: 14px;
-      padding: 14px 10px;
-      cursor: pointer;
-      text-align: center;
-      background: #fff;
-      transition: all .2s;
-      font-family: var(--font-body);
-    }
-
+    .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+    .pay-method { border: 2px solid #f0dde6; border-radius: 14px; padding: 14px 10px; cursor: pointer; text-align: center; background: #fff; transition: all .2s; font-family: var(--font-body); }
     .pay-method:hover { border-color: var(--pink-mid); }
-
-    .pay-method.selected {
-      border-color: var(--teal);
-      background: linear-gradient(135deg, #f0fdfb, #e0faf7);
-    }
-
+    .pay-method.selected { border-color: var(--teal); background: linear-gradient(135deg, #f0fdfb, #e0faf7); }
     .pay-method__icon { font-size: 1.6rem; display: block; margin-bottom: 4px; }
     .pay-method__label { font-size: .75rem; font-weight: 700; color: var(--brown-mid); }
-
     .pay-method.selected .pay-method__label { color: var(--teal-dark); }
 
     /* Terms */
-    .terms-check {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: .82rem;
-      color: var(--brown-mid);
-      line-height: 1.5;
-      margin-bottom: 24px;
-    }
-
-    .terms-check input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
-      accent-color: var(--teal);
-      padding: 0;
-    }
-
+    .terms-check { display: flex; align-items: flex-start; gap: 12px; font-size: .82rem; color: var(--brown-mid); line-height: 1.5; margin-bottom: 24px; }
+    .terms-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; accent-color: var(--teal); padding: 0; }
     .terms-check a { color: var(--pink); font-weight: 700; text-decoration: none; }
 
-    /* ── SUCCESS SCREEN ──────────────────────────── */
-    .success-screen {
-      display: none;
-      text-align: center;
-      padding: 60px 24px;
-      animation: stepIn .5s ease;
-    }
-
+    /* ── SUCCESS ── */
+    .success-screen { display: none; text-align: center; padding: 60px 24px; animation: stepIn .5s ease; }
     .success-screen.active { display: block; }
-
-    .success-icon {
-      width: 90px;
-      height: 90px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 28px;
-      font-size: 2.5rem;
-      box-shadow: 0 12px 36px rgba(45,212,191,.3);
-      animation: popIn .6s cubic-bezier(.34,1.56,.64,1) .2s both;
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0); opacity: 0; }
-      to   { transform: scale(1); opacity: 1; }
-    }
-
-    .success-title {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      color: var(--brown);
-      margin-bottom: 14px;
-    }
-
+    .success-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-size: 2.5rem; box-shadow: 0 12px 36px rgba(45,212,191,.3); animation: popIn .6s cubic-bezier(.34,1.56,.64,1) .2s both; }
+    @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .success-title { font-family: var(--font-display); font-size: 2.2rem; color: var(--brown); margin-bottom: 14px; }
     .success-title em { color: var(--pink); font-style: italic; }
-
-    .success-desc {
-      font-size: .95rem;
-      color: var(--brown-mid);
-      line-height: 1.7;
-      max-width: 440px;
-      margin: 0 auto 32px;
-    }
-
-    .success-details {
-      display: inline-flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #fff;
-      border: 1.5px solid #f0dde6;
-      border-radius: 18px;
-      padding: 20px 32px;
-      margin-bottom: 36px;
-      text-align: left;
-    }
-
-    .success-detail-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: .88rem;
-    }
-
-    .success-detail-row span:first-child { font-size: 1.1rem; }
+    .success-desc { font-size: .95rem; color: var(--brown-mid); line-height: 1.7; max-width: 440px; margin: 0 auto 32px; }
+    .success-details { display: inline-flex; flex-direction: column; gap: 10px; background: #fff; border: 1.5px solid #f0dde6; border-radius: 18px; padding: 20px 32px; margin-bottom: 36px; text-align: left; }
+    .success-detail-row { display: flex; align-items: center; gap: 12px; font-size: .88rem; }
     .success-detail-row strong { color: var(--brown); }
     .success-detail-row span:last-child { color: var(--brown-mid); }
 
-    /* ── BUTTONS ─────────────────────────────────── */
-    .btn-row {
-      display: flex;
-      gap: 12px;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .btn-back {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 24px;
-      border: 2px solid #f0dde6;
-      border-radius: 40px;
-      background: transparent;
-      font-family: var(--font-body);
-      font-size: .9rem;
-      font-weight: 700;
-      color: var(--brown-mid);
-      cursor: pointer;
-      transition: all .2s;
-    }
-
+    /* ── BUTTONS ── */
+    .btn-row { display: flex; gap: 12px; justify-content: space-between; align-items: center; }
+    .btn-back { display: flex; align-items: center; gap: 8px; padding: 13px 24px; border: 2px solid #f0dde6; border-radius: 40px; background: transparent; font-family: var(--font-body); font-size: .9rem; font-weight: 700; color: var(--brown-mid); cursor: pointer; transition: all .2s; }
     .btn-back:hover { border-color: var(--pink-mid); color: var(--pink); }
     .btn-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-
-    .btn-next {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 36px;
-      border: none;
-      border-radius: 40px;
-      background: var(--pink);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: .95rem;
-      font-weight: 900;
-      cursor: pointer;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 6px 20px rgba(166,53,88,.22);
-    }
-
+    .btn-next { display: flex; align-items: center; gap: 8px; padding: 14px 36px; border: none; border-radius: 40px; background: var(--pink); color: #fff; font-family: var(--font-body); font-size: .95rem; font-weight: 900; cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s; box-shadow: 0 6px 20px rgba(166,53,88,.22); }
     .btn-next:hover { background: #8c2a45; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(166,53,88,.3); }
     .btn-next:active { transform: translateY(0); }
     .btn-next svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-
-    .btn-submit {
-      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-      box-shadow: 0 6px 20px rgba(45,212,191,.28);
-    }
-
+    .btn-submit { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); box-shadow: 0 6px 20px rgba(45,212,191,.28); }
     .btn-submit:hover { background: linear-gradient(135deg, #25bfab, var(--teal-dark)); box-shadow: 0 10px 28px rgba(45,212,191,.36); }
-
-    .btn-home {
-      display: inline-block;
-      padding: 14px 36px;
-      border-radius: 40px;
-      background: var(--pink);
-      color: #fff;
-      font-family: var(--font-body);
-      font-weight: 900;
-      font-size: .95rem;
-      text-decoration: none;
-      transition: background .2s;
-      box-shadow: 0 6px 20px rgba(166,53,88,.22);
-    }
-
+    .btn-home { display: inline-block; padding: 14px 36px; border-radius: 40px; background: var(--pink); color: #fff; font-family: var(--font-body); font-weight: 900; font-size: .95rem; text-decoration: none; transition: background .2s; box-shadow: 0 6px 20px rgba(166,53,88,.22); }
     .btn-home:hover { background: #8c2a45; }
 
-    /* Error state */
     input.error, select.error { border-color: #e05; }
-    .field-error { font-size: .75rem; color: #e05; margin-top: 2px; }
 
-    /* ── RESPONSIVE ──────────────────────────────── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .signup-header { padding: 16px 20px; }
       .progress-wrap { padding: 0 12px; }
@@ -774,7 +316,6 @@
       .form-card { padding: 24px 20px; }
       .form-grid { grid-template-columns: 1fr; }
       .form-group.span2 { grid-column: span 1; }
-      .payment-methods { grid-template-columns: repeat(3, 1fr); }
       .btn-row { flex-wrap: wrap; }
       .btn-next { flex: 1; justify-content: center; }
     }
@@ -787,11 +328,9 @@
     <a href="/index.html" class="signup-logo">
       <span>Petcare</span><span>Spa</span>
     </a>
-    <a href="#" onclick="history.back(); return false;" class="signup-back">
-        <svg viewBox="0 0 24 24">
-            <polyline points="15 18 9 12 15 6"/>
-        </svg>
-        Back to Plans
+    <a href="/pages/membership.html" class="signup-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Plans
     </a>
   </header>
 
@@ -834,77 +373,62 @@
       </div>
 
       <div class="plan-grid">
+
+        <!-- BASIC -->
         <div class="plan-option" onclick="selectPlan('basic', this)" data-plan="basic">
           <div class="plan-option__icon">🐾</div>
           <div class="plan-option__name">Basic</div>
-          <p class="mp-plan-tagline">Essential care for a healthy, happy pet</p>
+          <span class="plan-option__orig" id="porig-basic"></span>
           <div class="plan-option__price">
             <span class="price-val" data-m="250.000₫" data-y="200.000₫">250.000₫</span>
           </div>
           <div class="plan-option__period">per month</div>
+          <div class="plan-option__div"></div>
           <ul class="plan-option__features">
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                2 wellness check-ups / year
-            </li>
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                10% off grooming sessions
-            </li>
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                Monthly health newsletter
-            </li>
-            <li>
-                <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-                Birthday treat for your pet
-            </li>
-            <li>
-                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
-                <span>24/7 vet chat support</span>
-            </li>
-            <li>
-                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
-                <span>Priority booking</span>
-            </li>
-            <li>
-                <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
-                <span>PawFeast double points</span>
-            </li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>2 wellness check-ups / year</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>10% off grooming</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Birthday treat</li>
           </ul>
         </div>
 
+        <!-- PLUS -->
         <div class="plan-option selected" onclick="selectPlan('plus', this)" data-plan="plus">
           <div class="plan-option__badge">Most Popular</div>
           <div class="plan-option__icon">⭐</div>
           <div class="plan-option__name">Plus</div>
+          <span class="plan-option__orig" id="porig-plus" data-m="600.000₫" data-y="540.000₫">600.000₫</span>
           <div class="plan-option__price">
             <span class="price-val" data-m="540.000₫" data-y="432.000₫">540.000₫</span>
           </div>
           <div class="plan-option__period">per month</div>
+          <div class="plan-option__div"></div>
           <ul class="plan-option__features">
-            <li>Unlimited wellness visits</li>
-            <li>25% off grooming</li>
-            <li>24/7 vet chat</li>
-            <li>Priority booking</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Unlimited wellness visits</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>25% off grooming</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>24/7 vet chat</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Priority booking</li>
           </ul>
         </div>
 
+        <!-- PREMIUM -->
         <div class="plan-option" onclick="selectPlan('premium', this)" data-plan="premium">
           <div class="plan-option__icon">👑</div>
           <div class="plan-option__name">Premium</div>
+          <span class="plan-option__orig" id="porig-premium"></span>
           <div class="plan-option__price">
             <span class="price-val" data-m="1.000.000₫" data-y="800.000₫">1.000.000₫</span>
           </div>
           <div class="plan-option__period">per month</div>
+          <div class="plan-option__div"></div>
           <ul class="plan-option__features">
-            <li>Everything in Plus</li>
-            <li>Dedicated concierge</li>
-            <li>Full grooming / month</li>
-            <li>VIP lounge access</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Everything in Plus</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Dedicated concierge</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Full grooming / month</li>
+            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>VIP lounge access</li>
           </ul>
         </div>
-      </div>
+
+      </div><!-- /plan-grid -->
 
       <div class="btn-row" style="justify-content:flex-end">
         <button class="btn-next" onclick="goTo(2)">
@@ -981,13 +505,13 @@
         <div class="pet-type-grid" style="margin-bottom: 28px;">
           <button type="button" class="pet-type-btn selected" onclick="selectPetType('dog', this)">
             <span class="pet-type-btn__icon">
-                <i class="fa-kit fa-petfolk-icon-dog-1"></i>
+              <i class="fa-kit fa-petfolk-icon-dog-1"></i>
             </span>
             <span class="pet-type-btn__label">Dog</span>
           </button>
           <button type="button" class="pet-type-btn" onclick="selectPetType('cat', this)">
             <span class="pet-type-btn__icon">
-                <i class="fa-kit fa-petfolk-icon-cat-1"></i>
+              <i class="fa-kit fa-petfolk-icon-cat-1"></i>
             </span>
             <span class="pet-type-btn__label">Cat</span>
           </button>
@@ -1055,36 +579,19 @@
         <p class="step-desc">Review your order and choose how you'd like to pay.</p>
       </div>
 
-      <!-- Order summary -->
       <div class="order-summary">
         <div class="order-summary__title">🛒 Order Summary</div>
-        <div class="order-row">
-          <span>Plan</span>
-          <strong id="summary-plan">Plus Plan</strong>
-        </div>
-        <div class="order-row">
-          <span>Billing</span>
-          <strong id="summary-billing">Monthly</strong>
-        </div>
-        <div class="order-row">
-          <span>Member</span>
-          <strong id="summary-name">—</strong>
-        </div>
-        <div class="order-row">
-          <span>Pet</span>
-          <strong id="summary-pet">—</strong>
-        </div>
-        <div class="order-row">
-          <span>Trial period</span>
-          <strong>14 days free</strong>
-        </div>
+        <div class="order-row"><span>Plan</span><strong id="summary-plan">Plus Plan</strong></div>
+        <div class="order-row"><span>Billing</span><strong id="summary-billing">Monthly</strong></div>
+        <div class="order-row"><span>Member</span><strong id="summary-name">—</strong></div>
+        <div class="order-row"><span>Pet</span><strong id="summary-pet">—</strong></div>
+        <div class="order-row"><span>Trial period</span><strong>14 days free</strong></div>
         <div class="order-total">
           <span>Total today</span>
           <span id="summary-price">0₫</span>
         </div>
       </div>
 
-      <!-- Payment method -->
       <div class="form-card">
         <div class="form-section-title"><span>💳</span> Payment Method</div>
         <div class="payment-methods">
@@ -1102,7 +609,6 @@
           </div>
         </div>
 
-        <!-- Card fields -->
         <div id="card-fields">
           <div class="form-grid full" style="gap:14px;">
             <div class="form-group">
@@ -1126,14 +632,12 @@
           </div>
         </div>
 
-        <!-- MoMo -->
         <div id="momo-fields" style="display:none;">
           <p style="font-size:.88rem; color:var(--brown-mid); line-height:1.6; padding:12px 0;">
             You'll be redirected to the MoMo app to complete payment after clicking <strong>Confirm Membership</strong>.
           </p>
         </div>
 
-        <!-- Bank Transfer -->
         <div id="bank-fields" style="display:none;">
           <div style="background:#f8f4f2; border-radius:12px; padding:16px; font-size:.85rem; line-height:1.8; color:var(--brown-mid);">
             <strong style="color:var(--brown); display:block; margin-bottom:8px;">Bank Transfer Details</strong>
@@ -1145,7 +649,6 @@
         </div>
       </div>
 
-      <!-- Terms -->
       <div class="terms-check">
         <input type="checkbox" id="terms" />
         <label for="terms" style="text-transform:none; letter-spacing:0; font-weight:400;">
@@ -1168,26 +671,12 @@
     <div class="success-screen" id="success">
       <div class="success-icon">🎉</div>
       <h2 class="success-title">Welcome to <em>Petcare Spa!</em></h2>
-      <p class="success-desc">
-        Your membership is confirmed. We've sent a welcome email with everything you need to get started. Your first visit is on us! 🐾
-      </p>
+      <p class="success-desc">Your membership is confirmed. We've sent a welcome email with everything you need to get started. Your first visit is on us! 🐾</p>
       <div class="success-details">
-        <div class="success-detail-row">
-          <span>📋</span>
-          <span>Plan: <strong id="success-plan">Plus</strong></span>
-        </div>
-        <div class="success-detail-row">
-          <span>👤</span>
-          <span>Member: <strong id="success-name">—</strong></span>
-        </div>
-        <div class="success-detail-row">
-          <span>🐾</span>
-          <span>Pet: <strong id="success-pet">—</strong></span>
-        </div>
-        <div class="success-detail-row">
-          <span>🎁</span>
-          <span><strong>14-day free trial</strong> has started</span>
-        </div>
+        <div class="success-detail-row"><span>📋</span><span>Plan: <strong id="success-plan">Plus</strong></span></div>
+        <div class="success-detail-row"><span>👤</span><span>Member: <strong id="success-name">—</strong></span></div>
+        <div class="success-detail-row"><span>🐾</span><span>Pet: <strong id="success-pet">—</strong></span></div>
+        <div class="success-detail-row"><span>🎁</span><span><strong>14-day free trial</strong> has started</span></div>
       </div>
       <a href="/index.html" class="btn-home">Go to My Dashboard 🐾</a>
     </div>
@@ -1195,84 +684,66 @@
   </div><!-- /signup-card -->
 
   <script>
-    /* ── STATE ── */
-    let state = {
-      step: 1,
-      plan: 'plus',
-      billing: 'monthly',
-      petType: 'dog',
-      payment: 'card'
-    };
+    let state = { step: 1, plan: 'plus', billing: 'monthly', petType: 'dog', payment: 'card' };
 
     const PRICES = {
       basic:   { monthly: '250.000₫', yearly: '200.000₫' },
       plus:    { monthly: '540.000₫', yearly: '432.000₫' },
       premium: { monthly: '1.000.000₫', yearly: '800.000₫' }
     };
-
     const PLAN_LABELS = { basic: 'Basic', plus: 'Plus', premium: 'Premium' };
 
-    /* ── NAVIGATION ── */
     function goTo(n) {
       document.getElementById(`step-${state.step}`).classList.remove('active');
-      document.getElementById(`prog-${state.step}`).classList.remove('active');
-      document.getElementById(`prog-${state.step}`).classList.add('done');
-
       if (n < state.step) {
-        // going back — un-done current
         document.getElementById(`prog-${state.step}`).classList.remove('done');
       }
-
       state.step = n;
       document.getElementById(`step-${n}`).classList.add('active');
-
-      // Update progress dots
       for (let i = 1; i <= 4; i++) {
         const el = document.getElementById(`prog-${i}`);
         el.classList.remove('active', 'done');
-        if (i < n)  el.classList.add('done');
+        if (i < n) el.classList.add('done');
         if (i === n) el.classList.add('active');
       }
-
       if (n === 4) updateSummary();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* ── PLAN SELECTION ── */
     function selectPlan(plan, el) {
       state.plan = plan;
       document.querySelectorAll('.plan-option').forEach(c => c.classList.remove('selected'));
       el.classList.add('selected');
     }
 
-    /* ── BILLING ── */
     function setBilling(mode, btn) {
       state.billing = mode;
       document.querySelectorAll('.billing-toggle button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      const key = mode === 'monthly' ? 'm' : 'y';
       document.querySelectorAll('.price-val').forEach(el => {
-        el.textContent = el.dataset[mode === 'monthly' ? 'm' : 'y'];
+        el.textContent = el.dataset[key];
       });
+      // update strikethrough
+      const origPlus = document.getElementById('porig-plus');
+      if (origPlus) origPlus.textContent = origPlus.dataset[key] || '';
     }
 
-    /* ── PET TYPE ── */
     function selectPetType(type, el) {
       state.petType = type;
       document.querySelectorAll('.pet-type-btn').forEach(b => b.classList.remove('selected'));
       el.classList.add('selected');
     }
 
-    /* ── PAYMENT ── */
     function selectPayment(method, el) {
       state.payment = method;
       document.querySelectorAll('.pay-method').forEach(b => b.classList.remove('selected'));
       el.classList.add('selected');
-      document.getElementById('card-fields').style.display = method === 'card'  ? 'block' : 'none';
-      document.getElementById('momo-fields').style.display = method === 'momo'  ? 'block' : 'none';
-      document.getElementById('bank-fields').style.display = method === 'bank'  ? 'block' : 'none';
+      document.getElementById('card-fields').style.display = method === 'card' ? 'block' : 'none';
+      document.getElementById('momo-fields').style.display = method === 'momo' ? 'block' : 'none';
+      document.getElementById('bank-fields').style.display = method === 'bank' ? 'block' : 'none';
     }
 
-    /* ── VALIDATION ── */
     function required(id) {
       const el = document.getElementById(id);
       if (!el.value.trim()) { el.classList.add('error'); return false; }
@@ -1280,45 +751,37 @@
     }
 
     function validateStep2() {
-      const ok = ['first-name','last-name','email','phone'].map(required).every(Boolean);
-      if (ok) goTo(3);
+      if (['first-name','last-name','email','phone'].map(required).every(Boolean)) goTo(3);
     }
 
     function validateStep3() {
-      const ok = ['pet-name','pet-breed'].map(required).every(Boolean);
-      if (ok) goTo(4);
+      if (['pet-name','pet-breed'].map(required).every(Boolean)) goTo(4);
     }
 
-    /* ── SUMMARY ── */
     function updateSummary() {
-      const firstName = document.getElementById('first-name').value || '—';
-      const lastName  = document.getElementById('last-name').value  || '';
-      const petName   = document.getElementById('pet-name').value   || '—';
-      const petBreed  = document.getElementById('pet-breed').value  || '';
-
+      const fn = document.getElementById('first-name').value || '—';
+      const ln = document.getElementById('last-name').value  || '';
+      const pn = document.getElementById('pet-name').value   || '—';
+      const pb = document.getElementById('pet-breed').value  || '';
       document.getElementById('summary-plan').textContent    = PLAN_LABELS[state.plan] + ' Plan';
       document.getElementById('summary-billing').textContent = state.billing === 'monthly' ? 'Monthly' : 'Yearly';
-      document.getElementById('summary-name').textContent    = `${firstName} ${lastName}`.trim();
-      document.getElementById('summary-pet').textContent     = petBreed ? `${petName} (${petBreed})` : petName;
+      document.getElementById('summary-name').textContent    = `${fn} ${ln}`.trim();
+      document.getElementById('summary-pet').textContent     = pb ? `${pn} (${pb})` : pn;
       document.getElementById('summary-price').textContent   = PRICES[state.plan][state.billing];
     }
 
-    /* ── SUBMIT ── */
     function submitForm() {
       if (!document.getElementById('terms').checked) {
         alert('Please agree to the Terms of Service to continue.');
         return;
       }
-
-      const firstName = document.getElementById('first-name').value || '—';
-      const lastName  = document.getElementById('last-name').value  || '';
-      const petName   = document.getElementById('pet-name').value   || '—';
-      const petBreed  = document.getElementById('pet-breed').value  || '';
-
+      const fn = document.getElementById('first-name').value || '—';
+      const ln = document.getElementById('last-name').value  || '';
+      const pn = document.getElementById('pet-name').value   || '—';
+      const pb = document.getElementById('pet-breed').value  || '';
       document.getElementById('success-plan').textContent = PLAN_LABELS[state.plan];
-      document.getElementById('success-name').textContent = `${firstName} ${lastName}`.trim();
-      document.getElementById('success-pet').textContent  = petBreed ? `${petName} (${petBreed})` : petName;
-
+      document.getElementById('success-name').textContent = `${fn} ${ln}`.trim();
+      document.getElementById('success-pet').textContent  = pb ? `${pn} (${pb})` : pn;
       document.getElementById('step-4').classList.remove('active');
       document.getElementById('success').classList.add('active');
       for (let i = 1; i <= 4; i++) {
@@ -1329,7 +792,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    /* ── CARD FORMATTING ── */
     function formatCard(el) {
       let v = el.value.replace(/\D/g, '').substring(0, 16);
       el.value = v.replace(/(.{4})/g, '$1 ').trim();
@@ -1341,7 +803,7 @@
       el.value = v;
     }
 
-    /* ── PRE-SELECT PLAN FROM URL ── */
+    // Pre-select from URL param
     const urlPlan = new URLSearchParams(window.location.search).get('plan');
     if (urlPlan && PRICES[urlPlan]) {
       state.plan = urlPlan;
