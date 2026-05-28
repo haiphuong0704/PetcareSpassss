@@ -179,6 +179,11 @@ var Cart = (function () {
     render();
     bumpBadge();
     showAddToast(product.name);
+    var currentPage = location.hash.replace('#', '') || 'home';
+
+    if (currentPage === 'cart') {
+      initCartPage();
+    }
     // Nếu đang ở trang cart → re-render tại chỗ, không mở drawer
     /*var currentPage = location.hash.replace('#', '') || 'home';
     if (currentPage === 'cart') {
@@ -420,11 +425,6 @@ function initCartPage() {
       recalcCart();
     }, 250);
   };
-
-  // Format VND
-  function cpFmt(n) {
-    return n.toLocaleString('vi-VN') + '₫';
-  }
 
   // Render item rows từ mảng
   function renderCartItems(itemArr) {
