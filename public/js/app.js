@@ -346,9 +346,9 @@ function initCartPage() {
 
   // Voucher
   const VOUCHERS = {
-    'PETCARE10': { label: 'PETCARE10', value: 50000  },
-    'WELCOME20': { label: 'WELCOME20', value: 100000 },
-    'FREESHIP':  { label: 'FREESHIP',  value: 30000  },
+    'PETCARE10': { label: 'PETCARE10', value: 50  },
+    'WELCOME20': { label: 'WELCOME20', value: 100 },
+    'FREESHIP':  { label: 'FREESHIP',  value: 30  },
   };
 
   window.cpApplyVoucher = function () {
