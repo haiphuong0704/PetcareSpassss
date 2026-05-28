@@ -323,6 +323,7 @@ window.renderProducts = renderProducts;
 // ===============================
 function initCartPage() {
   const FREE_SHIP_THRESHOLD = 300000;
+  const SHIPPING_FEE = 50000;
 
   // Đọc items từ localStorage
   let items = [];
@@ -481,52 +482,115 @@ function initCartPage() {
     }).join('');
   }
   function cpFmt(num) {
-  return (num * 1000).toLocaleString('vi-VN') + 'đ';
-}
+    return Number(num).toLocaleString('vi-VN') + 'đ';
+  }
   // Recalculate tất cả số liệu
   function recalcCart() {
     let subtotal = 0;
     const rows = document.querySelectorAll('.cp-row');
-
+  
     rows.forEach(row => {
       const price = parseInt(row.dataset.price) || 0;
       const qty   = parseInt(row.querySelector('.cp-qty-val')?.textContent) || 1;
-      const line  = price * qty;
+  
+      const line = price * qty;
       subtotal += line;
+  
       const lineEl = row.querySelector('.cp-line-total');
       if (lineEl) lineEl.textContent = cpFmt(line);
     });
-
-    const n          = rows.length;
-    const grandTotal = Math.max(0, subtotal - window._cpDiscount);
-    const el         = id => document.getElementById(id);
-
-    if (el('cp-subtotal'))    el('cp-subtotal').textContent    = cpFmt(subtotal);
-    if (el('cp-grand-total')) el('cp-grand-total').textContent = cpFmt(grandTotal);
-    if (el('sum-count'))      el('sum-count').textContent      = n;
-    if (el('strip-count'))    el('strip-count').textContent    = n + ' sản phẩm trong giỏ';
-    if (el('nav-item-count')) el('nav-item-count').textContent = n + ' sản phẩm';
-    if (el('hero-meta'))      el('hero-meta').textContent      = n + ' sản phẩm được chọn';
-
-    // Free shipping bar
-    const pct = Math.min(100, Math.round((subtotal / FREE_SHIP_THRESHOLD) * 100));
-    if (el('ship-fill')) el('ship-fill').style.width = pct + '%';
-    if (subtotal >= FREE_SHIP_THRESHOLD) {
-      if (el('ship-remaining')) el('ship-remaining').textContent = '✓ Đã đủ!';
-      if (el('ship-msg'))       el('ship-msg').textContent       = 'Bạn được miễn phí giao hàng!';
-    } else {
-      const remain = FREE_SHIP_THRESHOLD - subtotal;
-      if (el('ship-remaining')) el('ship-remaining').textContent = cpFmt(remain) + ' nữa';
-      if (el('ship-msg'))       el('ship-msg').textContent       = 'Mua thêm ' + cpFmt(remain) + ' để miễn phí ship';
+  
+    const n = rows.length;
+  
+    // shipping
+    const shippingFee = subtotal >= FREE_SHIP_THRESHOLD || subtotal === 0
+      ? 0
+      : SHIPPING_FEE;
+  
+    // total
+    const grandTotal = Math.max(
+      0,
+      subtotal + shippingFee - window._cpDiscount
+    );
+  
+    const el = id => document.getElementById(id);
+  
+    // subtotal
+    if (el('cp-subtotal')) {
+      el('cp-subtotal').textContent = cpFmt(subtotal);
     }
-
-    // Empty state
+  
+    // shipping fee
+    if (el('cp-shipping')) {
+      el('cp-shipping').textContent =
+        shippingFee === 0 ? 'Free' : cpFmt(shippingFee);
+    }
+  
+    // total
+    if (el('cp-grand-total')) {
+      el('cp-grand-total').textContent = cpFmt(grandTotal);
+    }
+  
+    // counts
+    if (el('sum-count')) {
+      el('sum-count').textContent = n;
+    }
+  
+    if (el('strip-count')) {
+      el('strip-count').textContent = n + ' sản phẩm trong giỏ';
+    }
+  
+    if (el('nav-item-count')) {
+      el('nav-item-count').textContent = n + ' sản phẩm';
+    }
+  
+    if (el('hero-meta')) {
+      el('hero-meta').textContent = n + ' sản phẩm được chọn';
+    }
+  
+    // progress bar
+    const pct = Math.min(
+      100,
+      Math.round((subtotal / FREE_SHIP_THRESHOLD) * 100)
+    );
+  
+    if (el('ship-fill')) {
+      el('ship-fill').style.width = pct + '%';
+    }
+  
+    // free ship text
+    if (subtotal >= FREE_SHIP_THRESHOLD) {
+  
+      if (el('ship-remaining')) {
+        el('ship-remaining').textContent = '✓ Đã đủ điều kiện';
+      }
+  
+      if (el('ship-msg')) {
+        el('ship-msg').textContent =
+          'Bạn được miễn phí giao hàng!';
+      }
+  
+    } else {
+  
+      const remain = FREE_SHIP_THRESHOLD - subtotal;
+  
+      if (el('ship-remaining')) {
+        el('ship-remaining').textContent = cpFmt(remain);
+      }
+  
+      if (el('ship-msg')) {
+        el('ship-msg').textContent =
+          'Mua thêm ' + cpFmt(remain) + ' để miễn phí ship';
+      }
+    }
+  
+    // empty state
     if (n === 0) {
       if (layout) layout.style.display = 'none';
-      if (empty)  empty.classList.add('show');
+      if (empty) empty.classList.add('show');
     } else {
       if (layout) layout.style.display = '';
-      if (empty)  empty.classList.remove('show');
+      if (empty) empty.classList.remove('show');
     }
   }
 }
