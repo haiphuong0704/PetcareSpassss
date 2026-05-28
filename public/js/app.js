@@ -445,7 +445,9 @@ function initCartPage() {
         </div>`;
     }).join('');
   }
-
+  function cpFmt(num) {
+  return (num * 1000).toLocaleString('vi-VN') + 'đ';
+}
   // Recalculate tất cả số liệu
   function recalcCart() {
     let subtotal = 0;
