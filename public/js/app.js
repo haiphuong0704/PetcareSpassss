@@ -346,9 +346,9 @@ function initCartPage() {
 
   // Voucher
   const VOUCHERS = {
-    'PETCARE10': { label: 'PETCARE10', value: 50  },
-    'WELCOME20': { label: 'WELCOME20', value: 100 },
-    'FREESHIP':  { label: 'FREESHIP',  value: 30  },
+    'PETCARE10': { label: 'PETCARE10', value: 50000  },
+    'WELCOME20': { label: 'WELCOME20', value: 100000 },
+    'FREESHIP':  { label: 'FREESHIP',  value: 30000  },
   };
 
   window.cpApplyVoucher = function () {
@@ -356,7 +356,7 @@ function initCartPage() {
     const msg   = document.getElementById('cp-voucher-msg');
     if (!input || !msg) return;
     const code = input.value.trim().toUpperCase();
-    if (!code) { cpSetMsg(msg, 'Vui lòng nhập mã voucher.', false); return; }
+    if (!code) { cpSetMsg(msg, 'Please enter the voucher code.', false); return; }
     const v = VOUCHERS[code];
     if (v) {
       window._cpDiscount = v.value;
@@ -366,11 +366,11 @@ function initCartPage() {
       if (discountRow) discountRow.style.display = 'flex';
       if (discountVal) discountVal.textContent = '−' + cpFmt(v.value);
       if (voucherTag)  voucherTag.textContent  = v.label;
-      cpSetMsg(msg, '✓ Đã áp dụng — giảm ' + cpFmt(v.value), true);
+      cpSetMsg(msg, '✓ Discount applied — ' + cpFmt(v.value), true) + 'off';
       input.disabled = true;
       recalcCart();
     } else {
-      cpSetMsg(msg, '✗ Mã không hợp lệ hoặc đã hết hạn.', false);
+      cpSetMsg(msg, '✗ The code is invalid or has expired.', false);
     }
   };
 
@@ -536,15 +536,15 @@ function initCartPage() {
     }
   
     if (el('strip-count')) {
-      el('strip-count').textContent = n + ' sản phẩm trong giỏ';
+      el('strip-count').textContent = n + ' product in the cart';
     }
   
     if (el('nav-item-count')) {
-      el('nav-item-count').textContent = n + ' sản phẩm';
+      el('nav-item-count').textContent = n + ' product';
     }
   
     if (el('hero-meta')) {
-      el('hero-meta').textContent = n + ' sản phẩm được chọn';
+      el('hero-meta').textContent = n + ' products selected';
     }
   
     // progress bar
@@ -561,12 +561,12 @@ function initCartPage() {
     if (subtotal >= FREE_SHIP_THRESHOLD) {
   
       if (el('ship-remaining')) {
-        el('ship-remaining').textContent = '✓ Đã đủ điều kiện';
+        el('ship-remaining').textContent = '✓ Eligible';
       }
   
       if (el('ship-msg')) {
         el('ship-msg').textContent =
-          'Bạn được miễn phí giao hàng!';
+          'You get free shipping!';
       }
   
     } else {
@@ -579,7 +579,7 @@ function initCartPage() {
   
       if (el('ship-msg')) {
         el('ship-msg').textContent =
-          'Mua thêm ' + cpFmt(remain) + ' để miễn phí ship';
+          'Add ' + cpFmt(remain) + ' to your order for free shipping.';
       }
     }
   
