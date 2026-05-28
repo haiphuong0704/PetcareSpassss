@@ -267,8 +267,7 @@ var Cart = (function () {
         + '</div>'
         + '<button class="cd-remove" onclick="Cart.remove(\'' + item.id + '\')">Remove</button></div>'
         + '<div class="cd-item-price">'
-        + Number(parseFloat(String(item.price).replace(/[^0-9.]/g, '')) * item.qty)
-            .toLocaleString('vi-VN')
+        + ((parseFloat(String(item.price).replace(/[^0-9.]/g, '')) * 1000) * item.qty).toLocaleString('vi-VN')
         + '₫</div></div>';
     }).join('');
   }
@@ -444,7 +443,7 @@ function initCartPage() {
     if (empty)  empty.classList.remove('show');
 
     container.innerHTML = itemArr.map((item, i) => {
-      const price     = parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0;
+      const price     = (parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0) * 1000;
       const qty       = item.qty || 1;
       const lineTotal = price * qty;
       const imgEl     = item.img
