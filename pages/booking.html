@@ -34,8 +34,30 @@
       display:flex;align-items:center;justify-content:space-between;
       padding:0 40px;
     }
-    .bk-nav__logo{font-family:var(--font-display);font-size:1.35rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);text-decoration:none;}
-    .bk-nav__logo span{color:var(--pink);}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    
+    .logo-text {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    
+    .logo-text span {
+      color: #b03a64;
+    }
     .bk-nav__right{display:flex;align-items:center;gap:14px;}
     .bk-nav__help{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--gray);text-decoration:none;transition:.2s;}
     .bk-nav__help:hover{color:var(--pink);}
@@ -304,7 +326,17 @@
 
 <!-- NAV -->
 <nav class="bk-nav">
-  <a href="/" class="bk-nav__logo">Petcare <span>Spa</span></a>
+  <div class="logo">
+      <a
+        href="#"
+        onclick="showPage('home'); return false;"
+        style="text-decoration:none; color:inherit;"
+      >
+        <div class="logo-text">
+          Petcare <span>Spa</span>
+        </div>
+      </a>
+    </div>
   <div class="bk-nav__right">
     <a href="#" class="bk-nav__help"><i class="fa fa-circle-question"></i> Need help?</a>
     <a href="/" class="bk-nav__exit"><i class="fa fa-times"></i> Exit</a>
