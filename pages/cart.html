@@ -760,31 +760,50 @@ body {
       if (lineEl) lineEl.textContent = fmt(line);
     });
 
-    const n          = rows.length;
-    const grandTotal = Math.max(0, subtotal - appliedDiscount);
+    const n = rows.length;
+
+    // ── Phí ship: miễn phí nếu đủ ngưỡng, ngược lại 50.000đ ──
+    const isFreeShip = subtotal >= FREE_SHIP_THRESHOLD;
+    const shipFee    = isFreeShip ? 0 : 50_000;
+
+    // ── Grand total = subtotal + shipFee - discount ──
+    const grandTotal = Math.max(0, subtotal + shipFee - appliedDiscount);
 
     // Counts
-    if ($('sum-count'))  $('sum-count').textContent  = n;
+    if ($('sum-count'))   $('sum-count').textContent   = n;
     if ($('strip-count')) $('strip-count').textContent = n + ' sản phẩm trong giỏ';
-    if ($('hero-meta'))  $('hero-meta').textContent  = n + ' sản phẩm được chọn';
+    if ($('hero-meta'))   $('hero-meta').textContent   = n + ' sản phẩm được chọn';
 
     // Totals
     if ($('cp-subtotal'))    $('cp-subtotal').textContent    = fmt(subtotal);
     if ($('cp-grand-total')) $('cp-grand-total').textContent = fmt(grandTotal);
 
-    // Free shipping bar
+    // Ship fee row trong summary
+    const shipFeeEl = $('cp-ship-fee');
+    if (shipFeeEl) {
+      if (isFreeShip) {
+        shipFeeEl.innerHTML = '<i class="fa fa-check"></i> Miễn phí';
+        shipFeeEl.style.color = 'var(--green-dark)';
+      } else {
+        shipFeeEl.innerHTML = fmt(shipFee);
+        shipFeeEl.style.color = 'var(--dark)';
+        shipFeeEl.style.fontWeight = '800';
+      }
+    }
+
+    // Free shipping progress bar
     const pct = Math.min(100, Math.round((subtotal / FREE_SHIP_THRESHOLD) * 100));
     if ($('ship-fill')) $('ship-fill').style.width = pct + '%';
 
-    if (subtotal >= FREE_SHIP_THRESHOLD) {
-      if ($('ship-remaining'))  $('ship-remaining').textContent  = '✓ Đã đủ!';
-      if ($('ship-msg'))        $('ship-msg').textContent        = 'Bạn được miễn phí giao hàng!';
-      if ($('strip-ship-msg'))  $('strip-ship-msg').textContent  = 'Đủ điều kiện miễn phí giao hàng';
+    if (isFreeShip) {
+      if ($('ship-remaining')) $('ship-remaining').textContent = '✓ Đã đủ!';
+      if ($('ship-msg'))       $('ship-msg').textContent       = 'Bạn được miễn phí giao hàng!';
+      if ($('strip-ship-msg')) $('strip-ship-msg').textContent = 'Đủ điều kiện miễn phí giao hàng';
     } else {
       const remain = FREE_SHIP_THRESHOLD - subtotal;
-      if ($('ship-remaining'))  $('ship-remaining').textContent  = fmt(remain) + ' nữa';
-      if ($('ship-msg'))        $('ship-msg').textContent        = 'Mua thêm ' + fmt(remain) + ' để miễn phí ship';
-      if ($('strip-ship-msg'))  $('strip-ship-msg').textContent  = 'Cần thêm ' + fmt(remain);
+      if ($('ship-remaining')) $('ship-remaining').textContent = fmt(remain) + ' nữa';
+      if ($('ship-msg'))       $('ship-msg').textContent       = 'Mua thêm ' + fmt(remain) + ' để miễn phí ship';
+      if ($('strip-ship-msg')) $('strip-ship-msg').textContent = 'Phí ship: ' + fmt(shipFee);
     }
 
     // Empty / layout toggle
