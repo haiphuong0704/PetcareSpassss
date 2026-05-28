@@ -136,6 +136,35 @@ window.addEventListener("popstate", () => {
 // ===============================
 // CART
 // ===============================
+function showAddToast(name) {
+  // Tạo toast nếu chưa có
+  let toast = document.getElementById('cart-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'cart-toast';
+    toast.style.cssText = `
+      position:fixed; bottom:32px; left:50%;
+      transform:translateX(-50%) translateY(80px);
+      background:#1a0e12; color:#fff;
+      padding:13px 24px; border-radius:999px;
+      font-family:'Manrope',sans-serif;
+      font-size:.85rem; font-weight:700;
+      display:flex; align-items:center; gap:10px;
+      box-shadow:0 8px 32px rgba(0,0,0,.25);
+      transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+      z-index:9999; pointer-events:none;
+      white-space:nowrap;
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<span style="color:#2dd4bf;font-size:1rem;">✓</span> <strong>${name.length > 30 ? name.slice(0,30)+'…' : name}</strong> added to cart`;
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.style.transform = 'translateX(-50%) translateY(80px)';
+  }, 2500);
+}
+
 var Cart = (function () {
   var items = [];
 
@@ -149,14 +178,16 @@ var Cart = (function () {
     save();
     render();
     bumpBadge();
+    showAddToast(product.name);
     // Nếu đang ở trang cart → re-render tại chỗ, không mở drawer
-    var currentPage = location.hash.replace('#', '') || 'home';
+    /*var currentPage = location.hash.replace('#', '') || 'home';
     if (currentPage === 'cart') {
       initCartPage();
     } else {
       openCart();
-    }
+    }*/
   }
+
 
   function remove(id) {
     items = items.filter(function (i) { return i.id !== id; });
