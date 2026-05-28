@@ -37,6 +37,10 @@ async function showPage(page) {
     window.location.href = './pages/booking.html';
     return;
   }
+   if (page === 'cart') {
+    window.location.href = './pages/cart.html';
+    return;
+  }
   if (page === 'terms') {
     window.location.href = '/pages/terms.html';
     return;
@@ -55,6 +59,7 @@ async function showPage(page) {
     if (page === 'spabites')   initPawfeastPage();
     if (page === 'membership') initMemberPage();
     if (page === 'shop')       initShopPage();
+    if (page === 'cart')       initCartPage();
     loaderDone();
   }, 50);
 
@@ -131,6 +136,34 @@ window.addEventListener("popstate", () => {
   showPage(hash || 'home');
 });
 
+function initCartPage() {
+  // Đọc items từ localStorage (dùng cùng key 'pcs_cart' với Cart drawer)
+  let items = [];
+  try {
+    const raw = localStorage.getItem('pcs_cart');
+    if (raw) items = JSON.parse(raw);
+  } catch(e) {}
+
+  const container = document.getElementById('cp-items');
+  const layout    = document.getElementById('cp-layout');
+  const empty     = document.getElementById('cp-empty');
+
+  if (!container) return;
+
+  if (items.length === 0) {
+    if (layout) layout.style.display = 'none';
+    if (empty)  empty.style.display  = 'flex';
+    return;
+  }
+
+  // Render từng item vào .cp-items
+  container.innerHTML = items.map(item => `
+    <div class="cp-row" data-id="${item.id}"
+         data-price="${parseFloat(String(item.price).replace(/[^0-9.]/g,''))||0}">
+      ...
+    </div>
+  `).join('');
+}
 // ===============================
 // ABOUT PAGE INIT
 // ===============================
