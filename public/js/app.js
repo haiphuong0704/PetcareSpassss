@@ -242,7 +242,8 @@ var Cart = (function () {
     var n = count(), t = total();
     if (badge)  badge.textContent  = n;
     if (hCount) hCount.textContent = n + (n === 1 ? ' item' : ' items');
-    if (subtot) subtot.textContent = t.toFixed(3) + 'Đ';
+    if (subtot) subtot.textContent =
+      Number(t).toLocaleString('vi-VN') + '₫';
     if (items.length === 0) {
       body.innerHTML = ''; body.style.display = 'none';
       if (empty)  empty.classList.add('show');
@@ -265,7 +266,10 @@ var Cart = (function () {
         + '<button class="cd-qty-btn" onclick="Cart.setQty(\'' + item.id + '\',' + (item.qty + 1) + ')">+</button>'
         + '</div>'
         + '<button class="cd-remove" onclick="Cart.remove(\'' + item.id + '\')">Remove</button></div>'
-        + '<div class="cd-item-price">' + (parseFloat(String(item.price).replace(/[^0-9.]/g, '')) * item.qty).toFixed(3) + '₫</div></div>';
+        + '<div class="cd-item-price">'
+        + Number(parseFloat(String(item.price).replace(/[^0-9.]/g, '')) * item.qty)
+            .toLocaleString('vi-VN')
+        + '₫</div></div>';
     }).join('');
   }
 
