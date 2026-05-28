@@ -51,9 +51,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       top: 0;
       z-index: 100;
     }
-    .signup-logo { font-family: var(--font-display); font-size: 1.4rem; text-decoration: none; }
-    .signup-logo span:first-child { color: var(--brown); }
-    .signup-logo span:last-child  { color: var(--pink); }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    
+    .logo-text {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    
+    .logo-text span {
+      color: #b03a64;
+    }
     .signup-back { display: flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 700; color: var(--brown-mid); text-decoration: none; transition: color .2s; }
     .signup-back:hover { color: var(--pink); }
     .signup-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -891,9 +912,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
   <!-- HEADER -->
   <header class="signup-header">
-    <a href="/index.html" class="signup-logo">
-      <span>Petcare</span><span>Spa</span>
-    </a>
+    <div class="logo">
+      <a
+        href="#"
+        onclick="showPage('home'); return false;"
+        style="text-decoration:none; color:inherit;"
+      >
+        <div class="logo-text">
+          Petcare <span>Spa</span>
+        </div>
+      </a>
+    </div>
     <a href="#" onclick="history.back(); return false;" class="signup-back">
         <svg viewBox="0 0 24 24">
             <polyline points="15 18 9 12 15 6"/>
