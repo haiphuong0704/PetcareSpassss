@@ -240,19 +240,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     }
 
     /* check dot */
-    .plan-option__features li .fc {
-      flex-shrink: 0;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-    }
-    .plan-option__features li .fc svg { width: 8px; height: 8px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-
+    .mp-check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #2dd4bf;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mp-check svg { width: 10px; height: 10px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .mp-cross {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #e5e0dd;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mp-cross svg { width: 10px; height: 10px; fill: none; stroke: #9b7060; stroke-width: 2; stroke-linecap: round; }
+  .mp-features li span.mp-cross ~ span { color: #b09080; }
     /* ── STEP 2 & 3: FORM ── */
     .form-card {
         background: #fff;
@@ -969,7 +975,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <button onclick="setBilling('yearly', this)">Yearly <span class="save-tag">Save 20%</span></button>
       </div>
 
-      <div class="plan-grid">
+       <div class="plan-grid">
 
         <!-- BASIC -->
         <div class="plan-option" onclick="selectPlan('basic', this)" data-plan="basic">
@@ -982,9 +988,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="plan-option__period">per month</div>
           <div class="plan-option__div"></div>
           <ul class="plan-option__features">
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>2 wellness check-ups / year</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>10% off grooming</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Birthday treat</li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              2 wellness check-ups / year
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              10% off grooming sessions
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Monthly health newsletter
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Birthday treat for your pet
+            </li>
+            <li>
+              <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+              <span>24/7 vet chat support</span>
+            </li>
+            <li>
+              <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+              <span>Priority booking</span>
+            </li>
+            <li>
+              <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+              <span>PawFeast double points</span>
+            </li>
           </ul>
         </div>
 
@@ -1000,10 +1031,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="plan-option__period">per month</div>
           <div class="plan-option__div"></div>
           <ul class="plan-option__features">
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Unlimited wellness visits</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>25% off grooming</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>24/7 vet chat</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Priority booking</li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Unlimited wellness visits
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              25% off all grooming services
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              24/7 vet chat support
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Priority booking
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              PawFeast double points
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              1 free nail trim / month
+            </li>
+            <li>
+              <span class="mp-cross"><svg viewBox="0 0 12 12"><line x1="3" y1="3" x2="9" y2="9"/><line x1="9" y1="3" x2="3" y2="9"/></svg></span>
+              <span>Dedicated care concierge</span>
+            </li>
           </ul>
         </div>
 
@@ -1018,10 +1073,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="plan-option__period">per month</div>
           <div class="plan-option__div"></div>
           <ul class="plan-option__features">
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Everything in Plus</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Dedicated concierge</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>Full grooming / month</li>
-            <li><span class="fc"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></span>VIP lounge access</li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Everything in Plus
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Dedicated care concierge
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Full grooming session / month
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Quarterly surprise gift box
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Nutrition consultation
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              Early access to new services
+            </li>
+            <li>
+              <span class="mp-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+              VIP lounge access
+            </li>
           </ul>
         </div>
 
