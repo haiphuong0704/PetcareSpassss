@@ -190,7 +190,11 @@ body {
 .cp-cell { display: flex; align-items: center; }
 .cp-cell--price, .cp-cell--qty, .cp-cell--total { justify-content: center; }
 .cp-cell--del { justify-content: flex-end; }
-.cp-cell--product { gap: 16px; }
+.cp-cell--product { 
+   overflow: hidden;
+   gap: 16px; 
+   min-width: 0;
+}
 
 .cp-item-img {
   width: 80px; height: 80px;
